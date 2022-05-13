@@ -34,26 +34,26 @@ impl From<crate::W<TRANSMIT_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `transmit_length` reader - Length of words per UART transmit\n\n This field is ignored when `freerun` mode is enabled."]
-pub struct TRANSMIT_LENGTH_R(crate::FieldReader<u16>);
-impl TRANSMIT_LENGTH_R {
+#[doc = "Field `transfer_length` reader - Length of words per UART transmit transfer\n\n This field is ignored when `freerun` mode is enabled."]
+pub struct TRANSFER_LENGTH_R(crate::FieldReader<u16>);
+impl TRANSFER_LENGTH_R {
     #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
-        TRANSMIT_LENGTH_R(crate::FieldReader::new(bits))
+        TRANSFER_LENGTH_R(crate::FieldReader::new(bits))
     }
 }
-impl core::ops::Deref for TRANSMIT_LENGTH_R {
+impl core::ops::Deref for TRANSFER_LENGTH_R {
     type Target = crate::FieldReader<u16>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-#[doc = "Field `transmit_length` writer - Length of words per UART transmit\n\n This field is ignored when `freerun` mode is enabled."]
-pub struct TRANSMIT_LENGTH_W<'a> {
+#[doc = "Field `transfer_length` writer - Length of words per UART transmit transfer\n\n This field is ignored when `freerun` mode is enabled."]
+pub struct TRANSFER_LENGTH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> TRANSMIT_LENGTH_W<'a> {
+impl<'a> TRANSFER_LENGTH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
@@ -375,10 +375,10 @@ impl<'a> FUNCTION_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 16:31 - Length of words per UART transmit\n\n This field is ignored when `freerun` mode is enabled."]
+    #[doc = "Bits 16:31 - Length of words per UART transmit transfer\n\n This field is ignored when `freerun` mode is enabled."]
     #[inline(always)]
-    pub fn transmit_length(&self) -> TRANSMIT_LENGTH_R {
-        TRANSMIT_LENGTH_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn transfer_length(&self) -> TRANSFER_LENGTH_R {
+        TRANSFER_LENGTH_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
     #[doc = "Bits 12:13 - Number of stop bits"]
     #[inline(always)]
@@ -427,10 +427,10 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bits 16:31 - Length of words per UART transmit\n\n This field is ignored when `freerun` mode is enabled."]
+    #[doc = "Bits 16:31 - Length of words per UART transmit transfer\n\n This field is ignored when `freerun` mode is enabled."]
     #[inline(always)]
-    pub fn transmit_length(&mut self) -> TRANSMIT_LENGTH_W {
-        TRANSMIT_LENGTH_W { w: self }
+    pub fn transfer_length(&mut self) -> TRANSFER_LENGTH_W {
+        TRANSFER_LENGTH_W { w: self }
     }
     #[doc = "Bits 12:13 - Number of stop bits"]
     #[inline(always)]

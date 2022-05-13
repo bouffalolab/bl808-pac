@@ -266,8 +266,8 @@
           <resetMask>0xffffffff</resetMask>
           <fields>
             <field>
-              <name>transmit_length</name>
-              <description>Length of words per UART transmit\n\n
+              <name>transfer_length</name>
+              <description>Length of words per UART transmit transfer\n\n
 This field is ignored when `freerun` mode is enabled.</description>
               <lsb>16</lsb>
               <msb>31</msb>
@@ -336,9 +336,8 @@ This field is ignored when `freerun` mode is enabled.</description>
           <resetMask>0xffffffff</resetMask>
           <fields>
             <field>
-              <name>receive_length</name>
-              <description>Length of words per UART receive\n\n
-This field is ignored when `freerun` mode is enabled.</description>
+              <name>transfer_length</name>
+              <description>Length of words per UART receive transfer</description>
               <lsb>16</lsb>
               <msb>31</msb>
             </field>
@@ -414,112 +413,459 @@ This field is ignored when `freerun` mode is enabled.</description>
           <name>bit_period</name>
           <description>Bit period control register</description>
           <addressOffset>0x08</addressOffset>
+          <resetValue>0x00ff00ff</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive</name>
+              <description>Period of each receive bit\n\n
+This field relates to baudrate.</description>
+              <lsb>16</lsb>
+              <msb>31</msb>
+            </field>
+            <field>
+              <name>transmit</name>
+              <description>Period of each transmit bit\n\n
+This field relates to baudrate.</description>
+              <lsb>0</lsb>
+              <msb>15</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>data_config</name>
           <description>Data configuration register</description>
           <addressOffset>0x0C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>bit_inverse</name>
+              <description>Enable bit inverse in each data word</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>transmit_position</name>
           <description>IR-mode transmit position control</description>
           <addressOffset>0x10</addressOffset>
+          <resetValue>0x009f0070</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>stop</name>
+              <description>Stop position of transmit IR pulse</description>
+              <lsb>16</lsb>
+              <msb>31</msb>
+            </field>
+            <field>
+              <name>start</name>
+              <description>Start position of transmit IR pulse</description>
+              <lsb>0</lsb>
+              <msb>15</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>receive_position</name>
           <description>IR-mode receive position control</description>
           <addressOffset>0x14</addressOffset>
+          <resetValue>0x0000006f</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>start</name>
+              <description>Start position of received pulse recovered from IR signal</description>
+              <lsb>0</lsb>
+              <msb>15</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>receive_timeout</name>
           <description>Receive Time-Out interrupt control</description>
           <addressOffset>0x18</addressOffset>
+          <resetValue>0x0000000f</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>value</name>
+              <description>Timeout interrupt triggering value</description>
+              <lsb>0</lsb>
+              <msb>7</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_state</name>
           <description>Interrupt state register</description>
           <addressOffset>0x20</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <access>read-only</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_fifo_error</name>
+              <description>Receive FIFO overflow or underflow occurred</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_error</name>
+              <description>Transmit FIFO overflow or underflow occurred</description>
+              <lsb>6</lsb>
+              <msb>6</msb>
+            </field>
+            <field>
+              <name>receive_parity</name>
+              <description>Receive parity check failure occurred</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+            </field>
+            <field>
+              <name>receive_timeout</name>
+              <description>Receive timed-out interrupt occurred</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
+            <field>
+              <name>receive_fifo_ready</name>
+              <description>Receive FIFO ready signal raised</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_ready</name>
+              <description>Transmit FIFO ready signal raised</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+            </field>
+            <field>
+              <name>receive_transfer</name>
+              <description>Receive transfer finish signal raised</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_transfer</name>
+              <description>Transmit transfer finish signal raised</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_mask</name>
           <description>Interrupt mask register</description>
           <addressOffset>0x24</addressOffset>
+          <resetValue>0x000000ff</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_fifo_error</name>
+              <description>Receive FIFO overflow or underflow interrupt mask</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_error</name>
+              <description>Transmit FIFO overflow or underflow interrupt mask</description>
+              <lsb>6</lsb>
+              <msb>6</msb>
+            </field>
+            <field>
+              <name>receive_parity</name>
+              <description>Receive parity check failure interrupt mask</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+            </field>
+            <field>
+              <name>receive_timeout</name>
+              <description>Receive timed-out interrupt mask</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
+            <field>
+              <name>receive_fifo_ready</name>
+              <description>Receive FIFO ready signal interrupt mask</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_ready</name>
+              <description>Transmit FIFO ready signal interrupt mask</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+            </field>
+            <field>
+              <name>receive_transfer</name>
+              <description>Receive transfer finish signal interrupt mask</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_transfer</name>
+              <description>Transmit transfer finish signal interrupt mask</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_clear</name>
           <description>Clear interrupt register</description>
           <addressOffset>0x28</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <access>write-only</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_parity</name>
+              <description>Write 1 to clear receive parity check failure</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+            </field>
+            <field>
+              <name>receive_timeout</name>
+              <description>Write 1 to clear receive timed-out</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
+            <field>
+              <name>receive_transfer</name>
+              <description>Write 1 to clear receive transfer finish signal</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_transfer</name>
+              <description>Write 1 to clear transmit transfer finish signal</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>interrupt_enable</name>
           <description>Interrupt enable register</description>
           <addressOffset>0x2C</addressOffset>
+          <resetValue>0x000000ff</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_fifo_error</name>
+              <description>Receive FIFO overflow or underflow interrupt enable</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_error</name>
+              <description>Transmit FIFO overflow or underflow interrupt enable</description>
+              <lsb>6</lsb>
+              <msb>6</msb>
+            </field>
+            <field>
+              <name>receive_parity</name>
+              <description>Receive parity check failure interrupt enable</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+            </field>
+            <field>
+              <name>receive_timeout</name>
+              <description>Receive timed-out interrupt enable</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
+            <field>
+              <name>receive_fifo_ready</name>
+              <description>Receive FIFO ready signal interrupt enable</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+            </field>
+            <field>
+              <name>transmit_fifo_ready</name>
+              <description>Transmit FIFO ready signal interrupt enable</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+            </field>
+            <field>
+              <name>receive_transfer</name>
+              <description>Receive transfer signal interrupt enable</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_transfer</name>
+              <description>Transmit transfer signal interrupt enable</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
-          <name>bus_status</name>
-          <description>Bus status register</description>
+          <name>bus_state</name>
+          <description>Bus state register</description>
           <addressOffset>0x30</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <access>read-only</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_busy</name>
+              <description>Indicates that UART receive bus is busy</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_busy</name>
+              <description>Indicates that UART transmit bus is busy</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>auto_baudrate</name>
           <description>Auto baudrate detection register</description>
           <addressOffset>0x34</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <access>read-only</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>by_five_five</name>
+              <description>Bit period of auto baudrate detection using codeword 0x55</description>
+              <lsb>16</lsb>
+              <msb>31</msb>
+            </field>
+            <field>
+              <name>by_start_bit</name>
+              <description>Bit period of auto baudrate detection using start bit</description>
+              <lsb>0</lsb>
+              <msb>15</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>fifo_config_0</name>
           <description>FIFO configuration register 0</description>
           <addressOffset>0x80</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_underflow</name>
+              <description>Receive FIFO underflow flag\n\n
+Can be cleared using `receive_clear`.</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>receive_overflow</name>
+              <description>Receive FIFO overflow flag\n\n
+Can be cleared using `receive_clear`.</description>
+              <lsb>6</lsb>
+              <msb>6</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>transmit_underflow</name>
+              <description>Transmit FIFO underflow flag\n\n
+Can be cleared using `transmit_clear`.</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>transmit_overflow</name>
+              <description>Transmit FIFO overflow flag\n\n
+Can be cleared using `transmit_clear`.</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>receive_clear</name>
+              <description>Clears receive FIFO overflow and underflow flags</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>transmit_clear</name>
+              <description>Clears transmit FIFO overflow and underflow flags</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>receive_dma</name>
+              <description>Enable signal of receive DMA interface</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>transmit_dma</name>
+              <description>Enable signal of transmit DMA interface</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
           </fields>
         </register>
         <register>
           <name>fifo_config_1</name>
           <description>FIFO configuration register 1</description>
           <addressOffset>0x84</addressOffset>
+          <resetValue>0x00000020</resetValue>
+          <resetMask>0xffffffff</resetMask>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>receive_threshold</name>
+              <description>Receive FIFO threshold\n\n
+DMA request will not be asserted if `receive_available` is less than this value</description>
+              <lsb>24</lsb>
+              <msb>28</msb>
+            </field>
+            <field>
+              <name>transmit_threshold</name>
+              <description>Transmit FIFO threshold\n\n
+DMA request will not be asserted if `receive_available` is less than this value</description>
+              <lsb>16</lsb>
+              <msb>20</msb>
+            </field>
+            <field>
+              <name>receive_available</name>
+              <description>Count of available data in receive FIFO</description>
+              <lsb>8</lsb>
+              <msb>13</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>transmit_available</name>
+              <description>Count of available data in transmit FIFO</description>
+              <lsb>0</lsb>
+              <msb>5</msb>
+              <access>read-only</access>
+            </field>
           </fields>
         </register>
         <register>
           <name>data_write</name>
           <description>FIFO write data register</description>
           <addressOffset>0x88</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <access>write-only</access>
           <fields>
-            <!-- todo: fields -->
+            <field>
+              <name>value</name>
+              <description>Write data to FIFO</description>
+              <lsb>0</lsb>
+              <msb>7</msb>
+            </field>
           </fields>
         </register>
         <register>
@@ -532,7 +878,7 @@ This field is ignored when `freerun` mode is enabled.</description>
           <fields>
             <field>
               <name>value</name>
-              <description>FIFO read data</description>
+              <description>Read data from FIFO</description>
               <lsb>0</lsb>
               <msb>7</msb>
             </field>

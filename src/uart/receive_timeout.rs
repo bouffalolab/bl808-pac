@@ -34,7 +34,46 @@ impl From<crate::W<RECEIVE_TIMEOUT_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `value` reader - Timeout interrupt triggering value"]
+pub struct VALUE_R(crate::FieldReader<u8>);
+impl VALUE_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: u8) -> Self {
+        VALUE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VALUE_R {
+    type Target = crate::FieldReader<u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `value` writer - Timeout interrupt triggering value"]
+pub struct VALUE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> VALUE_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bits 0:7 - Timeout interrupt triggering value"]
+    #[inline(always)]
+    pub fn value(&self) -> VALUE_R {
+        VALUE_R::new((self.bits & 0xff) as u8)
+    }
+}
 impl W {
+    #[doc = "Bits 0:7 - Timeout interrupt triggering value"]
+    #[inline(always)]
+    pub fn value(&mut self) -> VALUE_W {
+        VALUE_W { w: self }
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -55,10 +94,10 @@ impl crate::Readable for RECEIVE_TIMEOUT_SPEC {
 impl crate::Writable for RECEIVE_TIMEOUT_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets receive_timeout to value 0"]
+#[doc = "`reset()` method sets receive_timeout to value 0x0f"]
 impl crate::Resettable for RECEIVE_TIMEOUT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {
-        0
+        0x0f
     }
 }

@@ -13,7 +13,7 @@ impl From<crate::R<DATA_READ_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `value` reader - FIFO read data"]
+#[doc = "Field `value` reader - Read data from FIFO"]
 pub struct VALUE_R(crate::FieldReader<u8>);
 impl VALUE_R {
     #[inline(always)]
@@ -29,7 +29,7 @@ impl core::ops::Deref for VALUE_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - FIFO read data"]
+    #[doc = "Bits 0:7 - Read data from FIFO"]
     #[inline(always)]
     pub fn value(&self) -> VALUE_R {
         VALUE_R::new((self.bits & 0xff) as u8)

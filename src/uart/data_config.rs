@@ -34,7 +34,56 @@ impl From<crate::W<DATA_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `bit_inverse` reader - Enable bit inverse in each data word"]
+pub struct BIT_INVERSE_R(crate::FieldReader<bool>);
+impl BIT_INVERSE_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: bool) -> Self {
+        BIT_INVERSE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BIT_INVERSE_R {
+    type Target = crate::FieldReader<bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `bit_inverse` writer - Enable bit inverse in each data word"]
+pub struct BIT_INVERSE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> BIT_INVERSE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bit 0 - Enable bit inverse in each data word"]
+    #[inline(always)]
+    pub fn bit_inverse(&self) -> BIT_INVERSE_R {
+        BIT_INVERSE_R::new((self.bits & 1) != 0)
+    }
+}
 impl W {
+    #[doc = "Bit 0 - Enable bit inverse in each data word"]
+    #[inline(always)]
+    pub fn bit_inverse(&mut self) -> BIT_INVERSE_W {
+        BIT_INVERSE_W { w: self }
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {

@@ -34,7 +34,46 @@ impl From<crate::W<RECEIVE_POSITION_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `start` reader - Start position of received pulse recovered from IR signal"]
+pub struct START_R(crate::FieldReader<u16>);
+impl START_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: u16) -> Self {
+        START_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for START_R {
+    type Target = crate::FieldReader<u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `start` writer - Start position of received pulse recovered from IR signal"]
+pub struct START_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> START_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bits 0:15 - Start position of received pulse recovered from IR signal"]
+    #[inline(always)]
+    pub fn start(&self) -> START_R {
+        START_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - Start position of received pulse recovered from IR signal"]
+    #[inline(always)]
+    pub fn start(&mut self) -> START_W {
+        START_W { w: self }
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -55,10 +94,10 @@ impl crate::Readable for RECEIVE_POSITION_SPEC {
 impl crate::Writable for RECEIVE_POSITION_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets receive_position to value 0"]
+#[doc = "`reset()` method sets receive_position to value 0x6f"]
 impl crate::Resettable for RECEIVE_POSITION_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {
-        0
+        0x6f
     }
 }

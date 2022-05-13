@@ -24,8 +24,8 @@ pub struct RegisterBlock {
     pub interrupt_clear: crate::Reg<interrupt_clear::INTERRUPT_CLEAR_SPEC>,
     #[doc = "0x2c - Interrupt enable register"]
     pub interrupt_enable: crate::Reg<interrupt_enable::INTERRUPT_ENABLE_SPEC>,
-    #[doc = "0x30 - Bus status register"]
-    pub bus_status: crate::Reg<bus_status::BUS_STATUS_SPEC>,
+    #[doc = "0x30 - Bus state register"]
+    pub bus_state: crate::Reg<bus_state::BUS_STATE_SPEC>,
     #[doc = "0x34 - Auto baudrate detection register"]
     pub auto_baudrate: crate::Reg<auto_baudrate::AUTO_BAUDRATE_SPEC>,
     _reserved13: [u8; 0x48],
@@ -82,10 +82,10 @@ pub mod interrupt_clear;
 pub type INTERRUPT_ENABLE = crate::Reg<interrupt_enable::INTERRUPT_ENABLE_SPEC>;
 #[doc = "Interrupt enable register"]
 pub mod interrupt_enable;
-#[doc = "bus_status register accessor: an alias for `Reg<BUS_STATUS_SPEC>`"]
-pub type BUS_STATUS = crate::Reg<bus_status::BUS_STATUS_SPEC>;
-#[doc = "Bus status register"]
-pub mod bus_status;
+#[doc = "bus_state register accessor: an alias for `Reg<BUS_STATE_SPEC>`"]
+pub type BUS_STATE = crate::Reg<bus_state::BUS_STATE_SPEC>;
+#[doc = "Bus state register"]
+pub mod bus_state;
 #[doc = "auto_baudrate register accessor: an alias for `Reg<AUTO_BAUDRATE_SPEC>`"]
 pub type AUTO_BAUDRATE = crate::Reg<auto_baudrate::AUTO_BAUDRATE_SPEC>;
 #[doc = "Auto baudrate detection register"]

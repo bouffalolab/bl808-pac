@@ -13,36 +13,49 @@ impl From<crate::R<AUTO_BAUDRATE_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `auto_baudrate` writer"]
-pub struct W(crate::W<AUTO_BAUDRATE_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AUTO_BAUDRATE_SPEC>;
+#[doc = "Field `by_five_five` reader - Bit period of auto baudrate detection using codeword 0x55"]
+pub struct BY_FIVE_FIVE_R(crate::FieldReader<u16>);
+impl BY_FIVE_FIVE_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: u16) -> Self {
+        BY_FIVE_FIVE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BY_FIVE_FIVE_R {
+    type Target = crate::FieldReader<u16>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-impl core::ops::DerefMut for W {
+#[doc = "Field `by_start_bit` reader - Bit period of auto baudrate detection using start bit"]
+pub struct BY_START_BIT_R(crate::FieldReader<u16>);
+impl BY_START_BIT_R {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
+    pub(crate) fn new(bits: u16) -> Self {
+        BY_START_BIT_R(crate::FieldReader::new(bits))
     }
 }
-impl From<crate::W<AUTO_BAUDRATE_SPEC>> for W {
+impl core::ops::Deref for BY_START_BIT_R {
+    type Target = crate::FieldReader<u16>;
     #[inline(always)]
-    fn from(writer: crate::W<AUTO_BAUDRATE_SPEC>) -> Self {
-        W(writer)
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-impl W {
-    #[doc = "Writes raw bits to the register."]
+impl R {
+    #[doc = "Bits 16:31 - Bit period of auto baudrate detection using codeword 0x55"]
     #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn by_five_five(&self) -> BY_FIVE_FIVE_R {
+        BY_FIVE_FIVE_R::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+    #[doc = "Bits 0:15 - Bit period of auto baudrate detection using start bit"]
+    #[inline(always)]
+    pub fn by_start_bit(&self) -> BY_START_BIT_R {
+        BY_START_BIT_R::new((self.bits & 0xffff) as u16)
     }
 }
-#[doc = "Auto baudrate detection register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [auto_baudrate](index.html) module"]
+#[doc = "Auto baudrate detection register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [auto_baudrate](index.html) module"]
 pub struct AUTO_BAUDRATE_SPEC;
 impl crate::RegisterSpec for AUTO_BAUDRATE_SPEC {
     type Ux = u32;
@@ -50,10 +63,6 @@ impl crate::RegisterSpec for AUTO_BAUDRATE_SPEC {
 #[doc = "`read()` method returns [auto_baudrate::R](R) reader structure"]
 impl crate::Readable for AUTO_BAUDRATE_SPEC {
     type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [auto_baudrate::W](W) writer structure"]
-impl crate::Writable for AUTO_BAUDRATE_SPEC {
-    type Writer = W;
 }
 #[doc = "`reset()` method sets auto_baudrate to value 0"]
 impl crate::Resettable for AUTO_BAUDRATE_SPEC {
