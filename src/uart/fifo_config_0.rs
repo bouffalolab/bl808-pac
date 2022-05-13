@@ -34,12 +34,44 @@ impl From<crate::W<FIFO_CONFIG_0_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Receive FIFO underflow flag\n\n Can be cleared using `receive_clear`.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_UNDERFLOW_A {
+    #[doc = "0: No FIFO buffer underflow"]
+    NOT_UNDERFLOW = 0,
+    #[doc = "1: Has FIFO buffer underflow"]
+    UNDERFLOW = 1,
+}
+impl From<RECEIVE_UNDERFLOW_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_UNDERFLOW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_underflow` reader - Receive FIFO underflow flag\n\n Can be cleared using `receive_clear`."]
 pub struct RECEIVE_UNDERFLOW_R(crate::FieldReader<bool>);
 impl RECEIVE_UNDERFLOW_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_UNDERFLOW_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_UNDERFLOW_A {
+        match self.bits {
+            false => RECEIVE_UNDERFLOW_A::NOT_UNDERFLOW,
+            true => RECEIVE_UNDERFLOW_A::UNDERFLOW,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOT_UNDERFLOW`"]
+    #[inline(always)]
+    pub fn is_not_underflow(&self) -> bool {
+        **self == RECEIVE_UNDERFLOW_A::NOT_UNDERFLOW
+    }
+    #[doc = "Checks if the value of the field is `UNDERFLOW`"]
+    #[inline(always)]
+    pub fn is_underflow(&self) -> bool {
+        **self == RECEIVE_UNDERFLOW_A::UNDERFLOW
     }
 }
 impl core::ops::Deref for RECEIVE_UNDERFLOW_R {
@@ -49,12 +81,44 @@ impl core::ops::Deref for RECEIVE_UNDERFLOW_R {
         &self.0
     }
 }
+#[doc = "Receive FIFO overflow flag\n\n Can be cleared using `receive_clear`.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_OVERFLOW_A {
+    #[doc = "0: No FIFO buffer overflow"]
+    NOT_OVERFLOW = 0,
+    #[doc = "1: Has FIFO buffer overflow"]
+    OVERFLOW = 1,
+}
+impl From<RECEIVE_OVERFLOW_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_OVERFLOW_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_overflow` reader - Receive FIFO overflow flag\n\n Can be cleared using `receive_clear`."]
 pub struct RECEIVE_OVERFLOW_R(crate::FieldReader<bool>);
 impl RECEIVE_OVERFLOW_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_OVERFLOW_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_OVERFLOW_A {
+        match self.bits {
+            false => RECEIVE_OVERFLOW_A::NOT_OVERFLOW,
+            true => RECEIVE_OVERFLOW_A::OVERFLOW,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOT_OVERFLOW`"]
+    #[inline(always)]
+    pub fn is_not_overflow(&self) -> bool {
+        **self == RECEIVE_OVERFLOW_A::NOT_OVERFLOW
+    }
+    #[doc = "Checks if the value of the field is `OVERFLOW`"]
+    #[inline(always)]
+    pub fn is_overflow(&self) -> bool {
+        **self == RECEIVE_OVERFLOW_A::OVERFLOW
     }
 }
 impl core::ops::Deref for RECEIVE_OVERFLOW_R {
@@ -64,34 +128,24 @@ impl core::ops::Deref for RECEIVE_OVERFLOW_R {
         &self.0
     }
 }
-#[doc = "Field `transmit_underflow` reader - Transmit FIFO underflow flag\n\n Can be cleared using `transmit_clear`."]
-pub struct TRANSMIT_UNDERFLOW_R(crate::FieldReader<bool>);
-impl TRANSMIT_UNDERFLOW_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_UNDERFLOW_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_UNDERFLOW_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+#[doc = "Transmit FIFO overflow flag\n\n Can be cleared using `transmit_clear`."]
+pub use RECEIVE_OVERFLOW_A as TRANSMIT_OVERFLOW_A;
 #[doc = "Field `transmit_overflow` reader - Transmit FIFO overflow flag\n\n Can be cleared using `transmit_clear`."]
-pub struct TRANSMIT_OVERFLOW_R(crate::FieldReader<bool>);
-impl TRANSMIT_OVERFLOW_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_OVERFLOW_R(crate::FieldReader::new(bits))
-    }
+pub use RECEIVE_OVERFLOW_R as TRANSMIT_OVERFLOW_R;
+#[doc = "Transmit FIFO underflow flag\n\n Can be cleared using `transmit_clear`."]
+pub use RECEIVE_UNDERFLOW_A as TRANSMIT_UNDERFLOW_A;
+#[doc = "Field `transmit_underflow` reader - Transmit FIFO underflow flag\n\n Can be cleared using `transmit_clear`."]
+pub use RECEIVE_UNDERFLOW_R as TRANSMIT_UNDERFLOW_R;
+#[doc = "Clears receive FIFO overflow and underflow flags\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_CLEAR_AW {
+    #[doc = "1: Write 1 to clear fifo flags"]
+    CLEAR = 1,
 }
-impl core::ops::Deref for TRANSMIT_OVERFLOW_R {
-    type Target = crate::FieldReader<bool>;
+impl From<RECEIVE_CLEAR_AW> for bool {
     #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
+    fn from(variant: RECEIVE_CLEAR_AW) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `receive_clear` writer - Clears receive FIFO overflow and underflow flags"]
@@ -99,43 +153,79 @@ pub struct RECEIVE_CLEAR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_CLEAR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_CLEAR_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear fifo flags"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(RECEIVE_CLEAR_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(1 << 3)) | ((value as u32 & 1) << 3);
         self.w
     }
 }
+#[doc = "Clears transmit FIFO overflow and underflow flags"]
+pub use RECEIVE_CLEAR_AW as TRANSMIT_CLEAR_AW;
 #[doc = "Field `transmit_clear` writer - Clears transmit FIFO overflow and underflow flags"]
 pub struct TRANSMIT_CLEAR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_CLEAR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_CLEAR_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear fifo flags"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(TRANSMIT_CLEAR_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(1 << 2)) | ((value as u32 & 1) << 2);
         self.w
+    }
+}
+#[doc = "Enable signal of receive DMA interface\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_DMA_A {
+    #[doc = "1: Enable DMA interface"]
+    ENABLE = 1,
+    #[doc = "0: Disable DMA interface"]
+    DISABLE = 0,
+}
+impl From<RECEIVE_DMA_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_DMA_A) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `receive_dma` reader - Enable signal of receive DMA interface"]
@@ -144,6 +234,24 @@ impl RECEIVE_DMA_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_DMA_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_DMA_A {
+        match self.bits {
+            true => RECEIVE_DMA_A::ENABLE,
+            false => RECEIVE_DMA_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == RECEIVE_DMA_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == RECEIVE_DMA_A::DISABLE
     }
 }
 impl core::ops::Deref for RECEIVE_DMA_R {
@@ -158,6 +266,21 @@ pub struct RECEIVE_DMA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_DMA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_DMA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable DMA interface"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_DMA_A::ENABLE)
+    }
+    #[doc = "Disable DMA interface"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_DMA_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -175,26 +298,30 @@ impl<'a> RECEIVE_DMA_W<'a> {
         self.w
     }
 }
+#[doc = "Enable signal of transmit DMA interface"]
+pub use RECEIVE_DMA_A as TRANSMIT_DMA_A;
 #[doc = "Field `transmit_dma` reader - Enable signal of transmit DMA interface"]
-pub struct TRANSMIT_DMA_R(crate::FieldReader<bool>);
-impl TRANSMIT_DMA_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_DMA_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_DMA_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_DMA_R as TRANSMIT_DMA_R;
 #[doc = "Field `transmit_dma` writer - Enable signal of transmit DMA interface"]
 pub struct TRANSMIT_DMA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_DMA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_DMA_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable DMA interface"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRANSMIT_DMA_A::ENABLE)
+    }
+    #[doc = "Disable DMA interface"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRANSMIT_DMA_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {

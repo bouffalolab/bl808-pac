@@ -13,12 +13,44 @@ impl From<crate::R<INTERRUPT_STATE_SPEC>> for R {
         R(reader)
     }
 }
+#[doc = "Receive FIFO overflow or underflow occurred\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_FIFO_ERROR_A {
+    #[doc = "1: Has interrupt"]
+    HAS_INTERRUPT = 1,
+    #[doc = "0: No interrupt occurred"]
+    NO_INTERRUPT = 0,
+}
+impl From<RECEIVE_FIFO_ERROR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_FIFO_ERROR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_fifo_error` reader - Receive FIFO overflow or underflow occurred"]
 pub struct RECEIVE_FIFO_ERROR_R(crate::FieldReader<bool>);
 impl RECEIVE_FIFO_ERROR_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_FIFO_ERROR_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_FIFO_ERROR_A {
+        match self.bits {
+            true => RECEIVE_FIFO_ERROR_A::HAS_INTERRUPT,
+            false => RECEIVE_FIFO_ERROR_A::NO_INTERRUPT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `HAS_INTERRUPT`"]
+    #[inline(always)]
+    pub fn is_has_interrupt(&self) -> bool {
+        **self == RECEIVE_FIFO_ERROR_A::HAS_INTERRUPT
+    }
+    #[doc = "Checks if the value of the field is `NO_INTERRUPT`"]
+    #[inline(always)]
+    pub fn is_no_interrupt(&self) -> bool {
+        **self == RECEIVE_FIFO_ERROR_A::NO_INTERRUPT
     }
 }
 impl core::ops::Deref for RECEIVE_FIFO_ERROR_R {
@@ -28,111 +60,34 @@ impl core::ops::Deref for RECEIVE_FIFO_ERROR_R {
         &self.0
     }
 }
+#[doc = "Transmit FIFO overflow or underflow occurred"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_FIFO_ERROR_A;
+#[doc = "Receive parity check failure occurred"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_PARITY_A;
+#[doc = "Receive timed-out interrupt occurred"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_TIMEOUT_A;
+#[doc = "Receive FIFO ready signal raised"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_FIFO_READY_A;
+#[doc = "Transmit FIFO ready signal raised"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_FIFO_READY_A;
+#[doc = "Receive transfer finish signal raised"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_TRANSFER_A;
+#[doc = "Transmit transfer finish signal raised"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_TRANSFER_A;
 #[doc = "Field `transmit_fifo_error` reader - Transmit FIFO overflow or underflow occurred"]
-pub struct TRANSMIT_FIFO_ERROR_R(crate::FieldReader<bool>);
-impl TRANSMIT_FIFO_ERROR_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_FIFO_ERROR_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_FIFO_ERROR_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_FIFO_ERROR_R;
 #[doc = "Field `receive_parity` reader - Receive parity check failure occurred"]
-pub struct RECEIVE_PARITY_R(crate::FieldReader<bool>);
-impl RECEIVE_PARITY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_PARITY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_PARITY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_PARITY_R;
 #[doc = "Field `receive_timeout` reader - Receive timed-out interrupt occurred"]
-pub struct RECEIVE_TIMEOUT_R(crate::FieldReader<bool>);
-impl RECEIVE_TIMEOUT_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_TIMEOUT_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_TIMEOUT_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_TIMEOUT_R;
 #[doc = "Field `receive_fifo_ready` reader - Receive FIFO ready signal raised"]
-pub struct RECEIVE_FIFO_READY_R(crate::FieldReader<bool>);
-impl RECEIVE_FIFO_READY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_FIFO_READY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_FIFO_READY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_FIFO_READY_R;
 #[doc = "Field `transmit_fifo_ready` reader - Transmit FIFO ready signal raised"]
-pub struct TRANSMIT_FIFO_READY_R(crate::FieldReader<bool>);
-impl TRANSMIT_FIFO_READY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_FIFO_READY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_FIFO_READY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_FIFO_READY_R;
 #[doc = "Field `receive_transfer` reader - Receive transfer finish signal raised"]
-pub struct RECEIVE_TRANSFER_R(crate::FieldReader<bool>);
-impl RECEIVE_TRANSFER_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_TRANSFER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_TRANSFER_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_TRANSFER_R;
 #[doc = "Field `transmit_transfer` reader - Transmit transfer finish signal raised"]
-pub struct TRANSMIT_TRANSFER_R(crate::FieldReader<bool>);
-impl TRANSMIT_TRANSFER_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_TRANSFER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_TRANSFER_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_TRANSFER_R;
 impl R {
     #[doc = "Bit 7 - Receive FIFO overflow or underflow occurred"]
     #[inline(always)]

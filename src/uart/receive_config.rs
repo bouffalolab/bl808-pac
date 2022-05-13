@@ -88,12 +88,44 @@ impl<'a> DEGLITCH_CYCLE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable receive de-glitch function\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DEGLITCH_ENABLE_A {
+    #[doc = "1: Enable de-glitch function upon receive"]
+    ENABLE = 1,
+    #[doc = "0: Disable de-glitch function upon receive"]
+    DISABLE = 0,
+}
+impl From<DEGLITCH_ENABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: DEGLITCH_ENABLE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `deglitch_enable` reader - Enable receive de-glitch function"]
 pub struct DEGLITCH_ENABLE_R(crate::FieldReader<bool>);
 impl DEGLITCH_ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEGLITCH_ENABLE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DEGLITCH_ENABLE_A {
+        match self.bits {
+            true => DEGLITCH_ENABLE_A::ENABLE,
+            false => DEGLITCH_ENABLE_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == DEGLITCH_ENABLE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == DEGLITCH_ENABLE_A::DISABLE
     }
 }
 impl core::ops::Deref for DEGLITCH_ENABLE_R {
@@ -108,6 +140,21 @@ pub struct DEGLITCH_ENABLE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DEGLITCH_ENABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DEGLITCH_ENABLE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable de-glitch function upon receive"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(DEGLITCH_ENABLE_A::ENABLE)
+    }
+    #[doc = "Disable de-glitch function upon receive"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(DEGLITCH_ENABLE_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -152,12 +199,44 @@ impl<'a> WORD_LENGTH_W<'a> {
         self.w
     }
 }
+#[doc = "Inverse receive signal output in IR mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum IR_INVERSE_A {
+    #[doc = "1: Inverse receive input in IR mode"]
+    INVERSE = 1,
+    #[doc = "0: Don't inverse receive input in IR mode"]
+    NO_INVERSE = 0,
+}
+impl From<IR_INVERSE_A> for bool {
+    #[inline(always)]
+    fn from(variant: IR_INVERSE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ir_inverse` reader - Inverse receive signal output in IR mode"]
 pub struct IR_INVERSE_R(crate::FieldReader<bool>);
 impl IR_INVERSE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IR_INVERSE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> IR_INVERSE_A {
+        match self.bits {
+            true => IR_INVERSE_A::INVERSE,
+            false => IR_INVERSE_A::NO_INVERSE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `INVERSE`"]
+    #[inline(always)]
+    pub fn is_inverse(&self) -> bool {
+        **self == IR_INVERSE_A::INVERSE
+    }
+    #[doc = "Checks if the value of the field is `NO_INVERSE`"]
+    #[inline(always)]
+    pub fn is_no_inverse(&self) -> bool {
+        **self == IR_INVERSE_A::NO_INVERSE
     }
 }
 impl core::ops::Deref for IR_INVERSE_R {
@@ -172,6 +251,21 @@ pub struct IR_INVERSE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> IR_INVERSE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: IR_INVERSE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Inverse receive input in IR mode"]
+    #[inline(always)]
+    pub fn inverse(self) -> &'a mut W {
+        self.variant(IR_INVERSE_A::INVERSE)
+    }
+    #[doc = "Don't inverse receive input in IR mode"]
+    #[inline(always)]
+    pub fn no_inverse(self) -> &'a mut W {
+        self.variant(IR_INVERSE_A::NO_INVERSE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -189,12 +283,44 @@ impl<'a> IR_INVERSE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable IR receive mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum IR_RECEIVE_A {
+    #[doc = "1: Enable IR receive mode"]
+    ENABLE = 1,
+    #[doc = "0: Disable IR receive mode"]
+    DISABLE = 0,
+}
+impl From<IR_RECEIVE_A> for bool {
+    #[inline(always)]
+    fn from(variant: IR_RECEIVE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `ir_receive` reader - Enable IR receive mode"]
 pub struct IR_RECEIVE_R(crate::FieldReader<bool>);
 impl IR_RECEIVE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IR_RECEIVE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> IR_RECEIVE_A {
+        match self.bits {
+            true => IR_RECEIVE_A::ENABLE,
+            false => IR_RECEIVE_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == IR_RECEIVE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == IR_RECEIVE_A::DISABLE
     }
 }
 impl core::ops::Deref for IR_RECEIVE_R {
@@ -209,6 +335,21 @@ pub struct IR_RECEIVE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> IR_RECEIVE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: IR_RECEIVE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable IR receive mode"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(IR_RECEIVE_A::ENABLE)
+    }
+    #[doc = "Disable IR receive mode"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(IR_RECEIVE_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -226,12 +367,44 @@ impl<'a> IR_RECEIVE_W<'a> {
         self.w
     }
 }
+#[doc = "Select receive parity mode if enabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PARITY_MODE_A {
+    #[doc = "1: Odd parity if `parity_enable` is set"]
+    ODD = 1,
+    #[doc = "0: Even parity if `parity_enable` is set"]
+    EVEN = 0,
+}
+impl From<PARITY_MODE_A> for bool {
+    #[inline(always)]
+    fn from(variant: PARITY_MODE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `parity_mode` reader - Select receive parity mode if enabled"]
 pub struct PARITY_MODE_R(crate::FieldReader<bool>);
 impl PARITY_MODE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PARITY_MODE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PARITY_MODE_A {
+        match self.bits {
+            true => PARITY_MODE_A::ODD,
+            false => PARITY_MODE_A::EVEN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ODD`"]
+    #[inline(always)]
+    pub fn is_odd(&self) -> bool {
+        **self == PARITY_MODE_A::ODD
+    }
+    #[doc = "Checks if the value of the field is `EVEN`"]
+    #[inline(always)]
+    pub fn is_even(&self) -> bool {
+        **self == PARITY_MODE_A::EVEN
     }
 }
 impl core::ops::Deref for PARITY_MODE_R {
@@ -246,6 +419,21 @@ pub struct PARITY_MODE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PARITY_MODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PARITY_MODE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Odd parity if `parity_enable` is set"]
+    #[inline(always)]
+    pub fn odd(self) -> &'a mut W {
+        self.variant(PARITY_MODE_A::ODD)
+    }
+    #[doc = "Even parity if `parity_enable` is set"]
+    #[inline(always)]
+    pub fn even(self) -> &'a mut W {
+        self.variant(PARITY_MODE_A::EVEN)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -263,12 +451,44 @@ impl<'a> PARITY_MODE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable receive parity check\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PARITY_ENABLE_A {
+    #[doc = "1: Enable receive parity check"]
+    ENABLE = 1,
+    #[doc = "0: Disable receive parity check"]
+    DISABLE = 0,
+}
+impl From<PARITY_ENABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: PARITY_ENABLE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `parity_enable` reader - Enable receive parity check"]
 pub struct PARITY_ENABLE_R(crate::FieldReader<bool>);
 impl PARITY_ENABLE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PARITY_ENABLE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PARITY_ENABLE_A {
+        match self.bits {
+            true => PARITY_ENABLE_A::ENABLE,
+            false => PARITY_ENABLE_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == PARITY_ENABLE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == PARITY_ENABLE_A::DISABLE
     }
 }
 impl core::ops::Deref for PARITY_ENABLE_R {
@@ -283,6 +503,21 @@ pub struct PARITY_ENABLE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PARITY_ENABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PARITY_ENABLE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable receive parity check"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PARITY_ENABLE_A::ENABLE)
+    }
+    #[doc = "Disable receive parity check"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PARITY_ENABLE_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -300,12 +535,44 @@ impl<'a> PARITY_ENABLE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable receive auto baudrate detection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum AUTO_BAUDRATE_A {
+    #[doc = "1: Enable auto baudrate upon receive"]
+    ENABLE = 1,
+    #[doc = "0: Disable auto baudrate upon receive"]
+    DISABLE = 0,
+}
+impl From<AUTO_BAUDRATE_A> for bool {
+    #[inline(always)]
+    fn from(variant: AUTO_BAUDRATE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `auto_baudrate` reader - Enable receive auto baudrate detection"]
 pub struct AUTO_BAUDRATE_R(crate::FieldReader<bool>);
 impl AUTO_BAUDRATE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTO_BAUDRATE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> AUTO_BAUDRATE_A {
+        match self.bits {
+            true => AUTO_BAUDRATE_A::ENABLE,
+            false => AUTO_BAUDRATE_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == AUTO_BAUDRATE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == AUTO_BAUDRATE_A::DISABLE
     }
 }
 impl core::ops::Deref for AUTO_BAUDRATE_R {
@@ -320,6 +587,21 @@ pub struct AUTO_BAUDRATE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> AUTO_BAUDRATE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AUTO_BAUDRATE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable auto baudrate upon receive"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(AUTO_BAUDRATE_A::ENABLE)
+    }
+    #[doc = "Disable auto baudrate upon receive"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(AUTO_BAUDRATE_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -337,12 +619,44 @@ impl<'a> AUTO_BAUDRATE_W<'a> {
         self.w
     }
 }
+#[doc = "Value to override Request-to-Send signal if override is enabled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RTS_VALUE_A {
+    #[doc = "1: Assert Request-to-Send signal"]
+    HIGH = 1,
+    #[doc = "0: Deassert Request-to-Send signal"]
+    LOW = 0,
+}
+impl From<RTS_VALUE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RTS_VALUE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `rts_value` reader - Value to override Request-to-Send signal if override is enabled"]
 pub struct RTS_VALUE_R(crate::FieldReader<bool>);
 impl RTS_VALUE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTS_VALUE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RTS_VALUE_A {
+        match self.bits {
+            true => RTS_VALUE_A::HIGH,
+            false => RTS_VALUE_A::LOW,
+        }
+    }
+    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[inline(always)]
+    pub fn is_high(&self) -> bool {
+        **self == RTS_VALUE_A::HIGH
+    }
+    #[doc = "Checks if the value of the field is `LOW`"]
+    #[inline(always)]
+    pub fn is_low(&self) -> bool {
+        **self == RTS_VALUE_A::LOW
     }
 }
 impl core::ops::Deref for RTS_VALUE_R {
@@ -357,6 +671,21 @@ pub struct RTS_VALUE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RTS_VALUE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RTS_VALUE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Assert Request-to-Send signal"]
+    #[inline(always)]
+    pub fn high(self) -> &'a mut W {
+        self.variant(RTS_VALUE_A::HIGH)
+    }
+    #[doc = "Deassert Request-to-Send signal"]
+    #[inline(always)]
+    pub fn low(self) -> &'a mut W {
+        self.variant(RTS_VALUE_A::LOW)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -374,12 +703,44 @@ impl<'a> RTS_VALUE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable manual override of Request-to-Send flow control signal\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RTS_OVERRIDE_A {
+    #[doc = "1: Enable manual override of Request-to-Send flow control signal"]
+    ENABLE = 1,
+    #[doc = "0: Disable manual override of Request-to-Send flow control signal"]
+    DISABLE = 0,
+}
+impl From<RTS_OVERRIDE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RTS_OVERRIDE_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `rts_override` reader - Enable manual override of Request-to-Send flow control signal"]
 pub struct RTS_OVERRIDE_R(crate::FieldReader<bool>);
 impl RTS_OVERRIDE_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTS_OVERRIDE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RTS_OVERRIDE_A {
+        match self.bits {
+            true => RTS_OVERRIDE_A::ENABLE,
+            false => RTS_OVERRIDE_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == RTS_OVERRIDE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == RTS_OVERRIDE_A::DISABLE
     }
 }
 impl core::ops::Deref for RTS_OVERRIDE_R {
@@ -394,6 +755,21 @@ pub struct RTS_OVERRIDE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RTS_OVERRIDE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RTS_OVERRIDE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable manual override of Request-to-Send flow control signal"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RTS_OVERRIDE_A::ENABLE)
+    }
+    #[doc = "Disable manual override of Request-to-Send flow control signal"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RTS_OVERRIDE_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -411,12 +787,44 @@ impl<'a> RTS_OVERRIDE_W<'a> {
         self.w
     }
 }
+#[doc = "Enable receive function\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FUNCTION_A {
+    #[doc = "1: Enable UART receive function signal"]
+    ENABLE = 1,
+    #[doc = "0: Disable UART receive function signal"]
+    DISABLE = 0,
+}
+impl From<FUNCTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: FUNCTION_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `function` reader - Enable receive function"]
 pub struct FUNCTION_R(crate::FieldReader<bool>);
 impl FUNCTION_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FUNCTION_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FUNCTION_A {
+        match self.bits {
+            true => FUNCTION_A::ENABLE,
+            false => FUNCTION_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == FUNCTION_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == FUNCTION_A::DISABLE
     }
 }
 impl core::ops::Deref for FUNCTION_R {
@@ -431,6 +839,21 @@ pub struct FUNCTION_W<'a> {
     w: &'a mut W,
 }
 impl<'a> FUNCTION_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FUNCTION_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable UART receive function signal"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(FUNCTION_A::ENABLE)
+    }
+    #[doc = "Disable UART receive function signal"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(FUNCTION_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {

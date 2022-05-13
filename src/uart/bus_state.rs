@@ -13,12 +13,44 @@ impl From<crate::R<BUS_STATE_SPEC>> for R {
         R(reader)
     }
 }
+#[doc = "Indicates that UART receive bus is busy\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_BUSY_A {
+    #[doc = "1: Bus is busy"]
+    BUSY = 1,
+    #[doc = "0: Bus is not busy"]
+    IDLE = 0,
+}
+impl From<RECEIVE_BUSY_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_BUSY_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_busy` reader - Indicates that UART receive bus is busy"]
 pub struct RECEIVE_BUSY_R(crate::FieldReader<bool>);
 impl RECEIVE_BUSY_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_BUSY_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_BUSY_A {
+        match self.bits {
+            true => RECEIVE_BUSY_A::BUSY,
+            false => RECEIVE_BUSY_A::IDLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `BUSY`"]
+    #[inline(always)]
+    pub fn is_busy(&self) -> bool {
+        **self == RECEIVE_BUSY_A::BUSY
+    }
+    #[doc = "Checks if the value of the field is `IDLE`"]
+    #[inline(always)]
+    pub fn is_idle(&self) -> bool {
+        **self == RECEIVE_BUSY_A::IDLE
     }
 }
 impl core::ops::Deref for RECEIVE_BUSY_R {
@@ -28,21 +60,10 @@ impl core::ops::Deref for RECEIVE_BUSY_R {
         &self.0
     }
 }
+#[doc = "Indicates that UART transmit bus is busy"]
+pub use RECEIVE_BUSY_A as TRANSMIT_BUSY_A;
 #[doc = "Field `transmit_busy` reader - Indicates that UART transmit bus is busy"]
-pub struct TRANSMIT_BUSY_R(crate::FieldReader<bool>);
-impl TRANSMIT_BUSY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_BUSY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_BUSY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_BUSY_R as TRANSMIT_BUSY_R;
 impl R {
     #[doc = "Bit 1 - Indicates that UART receive bus is busy"]
     #[inline(always)]

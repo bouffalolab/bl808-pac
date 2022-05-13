@@ -34,26 +34,73 @@ impl From<crate::W<DATA_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `bit_inverse` reader - Enable bit inverse in each data word"]
-pub struct BIT_INVERSE_R(crate::FieldReader<bool>);
-impl BIT_INVERSE_R {
+#[doc = "Enable bit inverse in each data word\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum BIT_ORDER_A {
+    #[doc = "1: Each byte is sent out MSB-first"]
+    INVERSE = 1,
+    #[doc = "0: Each byte is sent out LSB-first"]
+    NO_INVERSE = 0,
+}
+impl From<BIT_ORDER_A> for bool {
     #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        BIT_INVERSE_R(crate::FieldReader::new(bits))
+    fn from(variant: BIT_ORDER_A) -> Self {
+        variant as u8 != 0
     }
 }
-impl core::ops::Deref for BIT_INVERSE_R {
+#[doc = "Field `bit_order` reader - Enable bit inverse in each data word"]
+pub struct BIT_ORDER_R(crate::FieldReader<bool>);
+impl BIT_ORDER_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: bool) -> Self {
+        BIT_ORDER_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BIT_ORDER_A {
+        match self.bits {
+            true => BIT_ORDER_A::INVERSE,
+            false => BIT_ORDER_A::NO_INVERSE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `INVERSE`"]
+    #[inline(always)]
+    pub fn is_inverse(&self) -> bool {
+        **self == BIT_ORDER_A::INVERSE
+    }
+    #[doc = "Checks if the value of the field is `NO_INVERSE`"]
+    #[inline(always)]
+    pub fn is_no_inverse(&self) -> bool {
+        **self == BIT_ORDER_A::NO_INVERSE
+    }
+}
+impl core::ops::Deref for BIT_ORDER_R {
     type Target = crate::FieldReader<bool>;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
-#[doc = "Field `bit_inverse` writer - Enable bit inverse in each data word"]
-pub struct BIT_INVERSE_W<'a> {
+#[doc = "Field `bit_order` writer - Enable bit inverse in each data word"]
+pub struct BIT_ORDER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> BIT_INVERSE_W<'a> {
+impl<'a> BIT_ORDER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BIT_ORDER_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Each byte is sent out MSB-first"]
+    #[inline(always)]
+    pub fn inverse(self) -> &'a mut W {
+        self.variant(BIT_ORDER_A::INVERSE)
+    }
+    #[doc = "Each byte is sent out LSB-first"]
+    #[inline(always)]
+    pub fn no_inverse(self) -> &'a mut W {
+        self.variant(BIT_ORDER_A::NO_INVERSE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -74,15 +121,15 @@ impl<'a> BIT_INVERSE_W<'a> {
 impl R {
     #[doc = "Bit 0 - Enable bit inverse in each data word"]
     #[inline(always)]
-    pub fn bit_inverse(&self) -> BIT_INVERSE_R {
-        BIT_INVERSE_R::new((self.bits & 1) != 0)
+    pub fn bit_order(&self) -> BIT_ORDER_R {
+        BIT_ORDER_R::new((self.bits & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - Enable bit inverse in each data word"]
     #[inline(always)]
-    pub fn bit_inverse(&mut self) -> BIT_INVERSE_W {
-        BIT_INVERSE_W { w: self }
+    pub fn bit_order(&mut self) -> BIT_ORDER_W {
+        BIT_ORDER_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]

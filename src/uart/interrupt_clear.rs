@@ -19,90 +19,148 @@ impl From<crate::W<INTERRUPT_CLEAR_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Write 1 to clear receive parity check failure\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_PARITY_AW {
+    #[doc = "1: Write 1 to clear interrupt state"]
+    CLEAR = 1,
+}
+impl From<RECEIVE_PARITY_AW> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_PARITY_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_parity` writer - Write 1 to clear receive parity check failure"]
 pub struct RECEIVE_PARITY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_PARITY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_PARITY_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear interrupt state"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(RECEIVE_PARITY_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(1 << 5)) | ((value as u32 & 1) << 5);
         self.w
     }
 }
+#[doc = "Write 1 to clear receive timed-out"]
+pub use RECEIVE_PARITY_AW as RECEIVE_TIMEOUT_AW;
 #[doc = "Field `receive_timeout` writer - Write 1 to clear receive timed-out"]
 pub struct RECEIVE_TIMEOUT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_TIMEOUT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_TIMEOUT_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear interrupt state"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(RECEIVE_TIMEOUT_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(1 << 4)) | ((value as u32 & 1) << 4);
         self.w
     }
 }
+#[doc = "Write 1 to clear receive transfer finish signal"]
+pub use RECEIVE_PARITY_AW as RECEIVE_TRANSFER_AW;
 #[doc = "Field `receive_transfer` writer - Write 1 to clear receive transfer finish signal"]
 pub struct RECEIVE_TRANSFER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_TRANSFER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_TRANSFER_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear interrupt state"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(RECEIVE_TRANSFER_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(1 << 1)) | ((value as u32 & 1) << 1);
         self.w
     }
 }
+#[doc = "Write 1 to clear transmit transfer finish signal"]
+pub use RECEIVE_PARITY_AW as TRANSMIT_TRANSFER_AW;
 #[doc = "Field `transmit_transfer` writer - Write 1 to clear transmit transfer finish signal"]
 pub struct TRANSMIT_TRANSFER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_TRANSFER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_TRANSFER_AW) -> &'a mut W {
+        unsafe { self.bit(variant.into()) }
+    }
+    #[doc = "Write 1 to clear interrupt state"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(TRANSMIT_TRANSFER_AW::CLEAR)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
+    pub unsafe fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
     #[doc = r"Clears the field bit"]
     #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
+    pub unsafe fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
+    pub unsafe fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
         self.w
     }

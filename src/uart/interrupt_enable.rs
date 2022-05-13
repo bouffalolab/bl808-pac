@@ -34,12 +34,44 @@ impl From<crate::W<INTERRUPT_ENABLE_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Receive FIFO overflow or underflow interrupt enable\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RECEIVE_FIFO_ERROR_A {
+    #[doc = "1: Enable interrupt"]
+    ENABLE = 1,
+    #[doc = "0: Disable interrupt"]
+    DISABLE = 0,
+}
+impl From<RECEIVE_FIFO_ERROR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE_FIFO_ERROR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Field `receive_fifo_error` reader - Receive FIFO overflow or underflow interrupt enable"]
 pub struct RECEIVE_FIFO_ERROR_R(crate::FieldReader<bool>);
 impl RECEIVE_FIFO_ERROR_R {
     #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RECEIVE_FIFO_ERROR_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE_FIFO_ERROR_A {
+        match self.bits {
+            true => RECEIVE_FIFO_ERROR_A::ENABLE,
+            false => RECEIVE_FIFO_ERROR_A::DISABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        **self == RECEIVE_FIFO_ERROR_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        **self == RECEIVE_FIFO_ERROR_A::DISABLE
     }
 }
 impl core::ops::Deref for RECEIVE_FIFO_ERROR_R {
@@ -54,6 +86,21 @@ pub struct RECEIVE_FIFO_ERROR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_FIFO_ERROR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_FIFO_ERROR_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_FIFO_ERROR_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_FIFO_ERROR_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -71,26 +118,30 @@ impl<'a> RECEIVE_FIFO_ERROR_W<'a> {
         self.w
     }
 }
+#[doc = "Transmit FIFO overflow or underflow interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_FIFO_ERROR_A;
 #[doc = "Field `transmit_fifo_error` reader - Transmit FIFO overflow or underflow interrupt enable"]
-pub struct TRANSMIT_FIFO_ERROR_R(crate::FieldReader<bool>);
-impl TRANSMIT_FIFO_ERROR_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_FIFO_ERROR_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_FIFO_ERROR_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_FIFO_ERROR_R;
 #[doc = "Field `transmit_fifo_error` writer - Transmit FIFO overflow or underflow interrupt enable"]
 pub struct TRANSMIT_FIFO_ERROR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_FIFO_ERROR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_FIFO_ERROR_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRANSMIT_FIFO_ERROR_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRANSMIT_FIFO_ERROR_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -108,26 +159,30 @@ impl<'a> TRANSMIT_FIFO_ERROR_W<'a> {
         self.w
     }
 }
+#[doc = "Receive parity check failure interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_PARITY_A;
 #[doc = "Field `receive_parity` reader - Receive parity check failure interrupt enable"]
-pub struct RECEIVE_PARITY_R(crate::FieldReader<bool>);
-impl RECEIVE_PARITY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_PARITY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_PARITY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_PARITY_R;
 #[doc = "Field `receive_parity` writer - Receive parity check failure interrupt enable"]
 pub struct RECEIVE_PARITY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_PARITY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_PARITY_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_PARITY_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_PARITY_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -145,26 +200,30 @@ impl<'a> RECEIVE_PARITY_W<'a> {
         self.w
     }
 }
+#[doc = "Receive timed-out interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_TIMEOUT_A;
 #[doc = "Field `receive_timeout` reader - Receive timed-out interrupt enable"]
-pub struct RECEIVE_TIMEOUT_R(crate::FieldReader<bool>);
-impl RECEIVE_TIMEOUT_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_TIMEOUT_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_TIMEOUT_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_TIMEOUT_R;
 #[doc = "Field `receive_timeout` writer - Receive timed-out interrupt enable"]
 pub struct RECEIVE_TIMEOUT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_TIMEOUT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_TIMEOUT_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_TIMEOUT_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_TIMEOUT_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -182,26 +241,30 @@ impl<'a> RECEIVE_TIMEOUT_W<'a> {
         self.w
     }
 }
+#[doc = "Receive FIFO ready signal interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_FIFO_READY_A;
 #[doc = "Field `receive_fifo_ready` reader - Receive FIFO ready signal interrupt enable"]
-pub struct RECEIVE_FIFO_READY_R(crate::FieldReader<bool>);
-impl RECEIVE_FIFO_READY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_FIFO_READY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_FIFO_READY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_FIFO_READY_R;
 #[doc = "Field `receive_fifo_ready` writer - Receive FIFO ready signal interrupt enable"]
 pub struct RECEIVE_FIFO_READY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_FIFO_READY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_FIFO_READY_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_FIFO_READY_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_FIFO_READY_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -219,26 +282,30 @@ impl<'a> RECEIVE_FIFO_READY_W<'a> {
         self.w
     }
 }
+#[doc = "Transmit FIFO ready signal interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_FIFO_READY_A;
 #[doc = "Field `transmit_fifo_ready` reader - Transmit FIFO ready signal interrupt enable"]
-pub struct TRANSMIT_FIFO_READY_R(crate::FieldReader<bool>);
-impl TRANSMIT_FIFO_READY_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_FIFO_READY_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_FIFO_READY_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_FIFO_READY_R;
 #[doc = "Field `transmit_fifo_ready` writer - Transmit FIFO ready signal interrupt enable"]
 pub struct TRANSMIT_FIFO_READY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_FIFO_READY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_FIFO_READY_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRANSMIT_FIFO_READY_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRANSMIT_FIFO_READY_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -256,26 +323,30 @@ impl<'a> TRANSMIT_FIFO_READY_W<'a> {
         self.w
     }
 }
+#[doc = "Receive transfer signal interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as RECEIVE_TRANSFER_A;
 #[doc = "Field `receive_transfer` reader - Receive transfer signal interrupt enable"]
-pub struct RECEIVE_TRANSFER_R(crate::FieldReader<bool>);
-impl RECEIVE_TRANSFER_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        RECEIVE_TRANSFER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for RECEIVE_TRANSFER_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as RECEIVE_TRANSFER_R;
 #[doc = "Field `receive_transfer` writer - Receive transfer signal interrupt enable"]
 pub struct RECEIVE_TRANSFER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RECEIVE_TRANSFER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RECEIVE_TRANSFER_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RECEIVE_TRANSFER_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RECEIVE_TRANSFER_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -293,26 +364,30 @@ impl<'a> RECEIVE_TRANSFER_W<'a> {
         self.w
     }
 }
+#[doc = "Transmit transfer signal interrupt enable"]
+pub use RECEIVE_FIFO_ERROR_A as TRANSMIT_TRANSFER_A;
 #[doc = "Field `transmit_transfer` reader - Transmit transfer signal interrupt enable"]
-pub struct TRANSMIT_TRANSFER_R(crate::FieldReader<bool>);
-impl TRANSMIT_TRANSFER_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        TRANSMIT_TRANSFER_R(crate::FieldReader::new(bits))
-    }
-}
-impl core::ops::Deref for TRANSMIT_TRANSFER_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
+pub use RECEIVE_FIFO_ERROR_R as TRANSMIT_TRANSFER_R;
 #[doc = "Field `transmit_transfer` writer - Transmit transfer signal interrupt enable"]
 pub struct TRANSMIT_TRANSFER_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRANSMIT_TRANSFER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRANSMIT_TRANSFER_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Enable interrupt"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRANSMIT_TRANSFER_A::ENABLE)
+    }
+    #[doc = "Disable interrupt"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRANSMIT_TRANSFER_A::DISABLE)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
