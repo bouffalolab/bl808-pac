@@ -19,172 +19,82 @@ impl From<crate::W<INTERRUPT_CLEAR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Write 1 to clear receive parity check failure\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE_PARITY_AW {
+#[doc = "Field `transmit_transfer` writer - Write 1 to clear transmit transfer finish signal"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as TRANSMIT_TRANSFER_W;
+#[doc = "Field `receive_transfer` writer - Write 1 to clear receive transfer finish signal"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as RECEIVE_TRANSFER_W;
+#[doc = "Field `receive_timeout` writer - Write 1 to clear receive timed-out"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as RECEIVE_TIMEOUT_W;
+#[doc = "Field `receive_parity` writer - Write 1 to clear receive parity check failure"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as RECEIVE_PARITY_W;
+#[doc = "Field `receive_sync_error` writer - Write 1 to clear receive LIN mode synchronization field error"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as RECEIVE_SYNC_ERROR_W;
+#[doc = "Field `receive_byte_count` writer - Write 1 to clear receive byte count reached"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as RECEIVE_BYTE_COUNT_W;
+#[doc = "Field `auto_baudrate_start_bit` writer - Write 1 to clear receive auto baudrate detection finished using start bit"]
+pub use AUTO_BAUDRATE_FIVE_FIVE_W as AUTO_BAUDRATE_START_BIT_W;
+#[doc = "Write 1 to clear receive auto baudrate detection finished using 0x55\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum INTERRUPT_CLEAR_AW {
     #[doc = "1: Write 1 to clear interrupt state"]
     CLEAR = 1,
 }
-impl From<RECEIVE_PARITY_AW> for bool {
+impl From<INTERRUPT_CLEAR_AW> for bool {
     #[inline(always)]
-    fn from(variant: RECEIVE_PARITY_AW) -> Self {
+    fn from(variant: INTERRUPT_CLEAR_AW) -> Self {
         variant as u8 != 0
     }
 }
-#[doc = "Field `receive_parity` writer - Write 1 to clear receive parity check failure"]
-pub struct RECEIVE_PARITY_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RECEIVE_PARITY_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RECEIVE_PARITY_AW) -> &'a mut W {
-        unsafe { self.bit(variant.into()) }
-    }
+#[doc = "Field `auto_baudrate_five_five` writer - Write 1 to clear receive auto baudrate detection finished using 0x55"]
+pub type AUTO_BAUDRATE_FIVE_FIVE_W<'a, const O: u8> =
+    crate::BitWriter<'a, u32, INTERRUPT_CLEAR_SPEC, INTERRUPT_CLEAR_AW, O>;
+impl<'a, const O: u8> AUTO_BAUDRATE_FIVE_FIVE_W<'a, O> {
     #[doc = "Write 1 to clear interrupt state"]
     #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(RECEIVE_PARITY_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub unsafe fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub unsafe fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(1 << 5)) | ((value as u32 & 1) << 5);
-        self.w
-    }
-}
-#[doc = "Write 1 to clear receive timed-out"]
-pub use RECEIVE_PARITY_AW as RECEIVE_TIMEOUT_AW;
-#[doc = "Field `receive_timeout` writer - Write 1 to clear receive timed-out"]
-pub struct RECEIVE_TIMEOUT_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RECEIVE_TIMEOUT_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RECEIVE_TIMEOUT_AW) -> &'a mut W {
-        unsafe { self.bit(variant.into()) }
-    }
-    #[doc = "Write 1 to clear interrupt state"]
-    #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(RECEIVE_TIMEOUT_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub unsafe fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub unsafe fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(1 << 4)) | ((value as u32 & 1) << 4);
-        self.w
-    }
-}
-#[doc = "Write 1 to clear receive transfer finish signal"]
-pub use RECEIVE_PARITY_AW as RECEIVE_TRANSFER_AW;
-#[doc = "Field `receive_transfer` writer - Write 1 to clear receive transfer finish signal"]
-pub struct RECEIVE_TRANSFER_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> RECEIVE_TRANSFER_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: RECEIVE_TRANSFER_AW) -> &'a mut W {
-        unsafe { self.bit(variant.into()) }
-    }
-    #[doc = "Write 1 to clear interrupt state"]
-    #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(RECEIVE_TRANSFER_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub unsafe fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub unsafe fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(1 << 1)) | ((value as u32 & 1) << 1);
-        self.w
-    }
-}
-#[doc = "Write 1 to clear transmit transfer finish signal"]
-pub use RECEIVE_PARITY_AW as TRANSMIT_TRANSFER_AW;
-#[doc = "Field `transmit_transfer` writer - Write 1 to clear transmit transfer finish signal"]
-pub struct TRANSMIT_TRANSFER_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> TRANSMIT_TRANSFER_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: TRANSMIT_TRANSFER_AW) -> &'a mut W {
-        unsafe { self.bit(variant.into()) }
-    }
-    #[doc = "Write 1 to clear interrupt state"]
-    #[inline(always)]
-    pub fn clear(self) -> &'a mut W {
-        self.variant(TRANSMIT_TRANSFER_AW::CLEAR)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub unsafe fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub unsafe fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub unsafe fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
-        self.w
+        self.variant(INTERRUPT_CLEAR_AW::CLEAR)
     }
 }
 impl W {
-    #[doc = "Bit 5 - Write 1 to clear receive parity check failure"]
+    #[doc = "Bit 0 - Write 1 to clear transmit transfer finish signal"]
     #[inline(always)]
-    pub fn receive_parity(&mut self) -> RECEIVE_PARITY_W {
-        RECEIVE_PARITY_W { w: self }
-    }
-    #[doc = "Bit 4 - Write 1 to clear receive timed-out"]
-    #[inline(always)]
-    pub fn receive_timeout(&mut self) -> RECEIVE_TIMEOUT_W {
-        RECEIVE_TIMEOUT_W { w: self }
+    pub fn transmit_transfer(&mut self) -> TRANSMIT_TRANSFER_W<0> {
+        TRANSMIT_TRANSFER_W::new(self)
     }
     #[doc = "Bit 1 - Write 1 to clear receive transfer finish signal"]
     #[inline(always)]
-    pub fn receive_transfer(&mut self) -> RECEIVE_TRANSFER_W {
-        RECEIVE_TRANSFER_W { w: self }
+    pub fn receive_transfer(&mut self) -> RECEIVE_TRANSFER_W<1> {
+        RECEIVE_TRANSFER_W::new(self)
     }
-    #[doc = "Bit 0 - Write 1 to clear transmit transfer finish signal"]
+    #[doc = "Bit 4 - Write 1 to clear receive timed-out"]
     #[inline(always)]
-    pub fn transmit_transfer(&mut self) -> TRANSMIT_TRANSFER_W {
-        TRANSMIT_TRANSFER_W { w: self }
+    pub fn receive_timeout(&mut self) -> RECEIVE_TIMEOUT_W<4> {
+        RECEIVE_TIMEOUT_W::new(self)
+    }
+    #[doc = "Bit 5 - Write 1 to clear receive parity check failure"]
+    #[inline(always)]
+    pub fn receive_parity(&mut self) -> RECEIVE_PARITY_W<5> {
+        RECEIVE_PARITY_W::new(self)
+    }
+    #[doc = "Bit 8 - Write 1 to clear receive LIN mode synchronization field error"]
+    #[inline(always)]
+    pub fn receive_sync_error(&mut self) -> RECEIVE_SYNC_ERROR_W<8> {
+        RECEIVE_SYNC_ERROR_W::new(self)
+    }
+    #[doc = "Bit 9 - Write 1 to clear receive byte count reached"]
+    #[inline(always)]
+    pub fn receive_byte_count(&mut self) -> RECEIVE_BYTE_COUNT_W<9> {
+        RECEIVE_BYTE_COUNT_W::new(self)
+    }
+    #[doc = "Bit 10 - Write 1 to clear receive auto baudrate detection finished using start bit"]
+    #[inline(always)]
+    pub fn auto_baudrate_start_bit(&mut self) -> AUTO_BAUDRATE_START_BIT_W<10> {
+        AUTO_BAUDRATE_START_BIT_W::new(self)
+    }
+    #[doc = "Bit 11 - Write 1 to clear receive auto baudrate detection finished using 0x55"]
+    #[inline(always)]
+    pub fn auto_baudrate_five_five(&mut self) -> AUTO_BAUDRATE_FIVE_FIVE_W<11> {
+        AUTO_BAUDRATE_FIVE_FIVE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]

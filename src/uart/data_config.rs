@@ -34,8 +34,10 @@ impl From<crate::W<DATA_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `bit_order` reader - Enable bit inverse in each data word"]
+pub type BIT_ORDER_R = crate::BitReader<BIT_ORDER_A>;
 #[doc = "Enable bit inverse in each data word\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BIT_ORDER_A {
     #[doc = "1: Each byte is sent out MSB-first"]
     INVERSE = 1,
@@ -48,14 +50,8 @@ impl From<BIT_ORDER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `bit_order` reader - Enable bit inverse in each data word"]
-pub struct BIT_ORDER_R(crate::FieldReader<bool>);
 impl BIT_ORDER_R {
-    #[inline(always)]
-    pub(crate) fn new(bits: bool) -> Self {
-        BIT_ORDER_R(crate::FieldReader::new(bits))
-    }
-    #[doc = r"Get enumerated values variant"]
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BIT_ORDER_A {
         match self.bits {
@@ -66,31 +62,17 @@ impl BIT_ORDER_R {
     #[doc = "Checks if the value of the field is `INVERSE`"]
     #[inline(always)]
     pub fn is_inverse(&self) -> bool {
-        **self == BIT_ORDER_A::INVERSE
+        *self == BIT_ORDER_A::INVERSE
     }
     #[doc = "Checks if the value of the field is `NO_INVERSE`"]
     #[inline(always)]
     pub fn is_no_inverse(&self) -> bool {
-        **self == BIT_ORDER_A::NO_INVERSE
-    }
-}
-impl core::ops::Deref for BIT_ORDER_R {
-    type Target = crate::FieldReader<bool>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
+        *self == BIT_ORDER_A::NO_INVERSE
     }
 }
 #[doc = "Field `bit_order` writer - Enable bit inverse in each data word"]
-pub struct BIT_ORDER_W<'a> {
-    w: &'a mut W,
-}
-impl<'a> BIT_ORDER_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
-    #[inline(always)]
-    pub fn variant(self, variant: BIT_ORDER_A) -> &'a mut W {
-        self.bit(variant.into())
-    }
+pub type BIT_ORDER_W<'a, const O: u8> = crate::BitWriter<'a, u32, DATA_CONFIG_SPEC, BIT_ORDER_A, O>;
+impl<'a, const O: u8> BIT_ORDER_W<'a, O> {
     #[doc = "Each byte is sent out MSB-first"]
     #[inline(always)]
     pub fn inverse(self) -> &'a mut W {
@@ -100,22 +82,6 @@ impl<'a> BIT_ORDER_W<'a> {
     #[inline(always)]
     pub fn no_inverse(self) -> &'a mut W {
         self.variant(BIT_ORDER_A::NO_INVERSE)
-    }
-    #[doc = r"Sets the field bit"]
-    #[inline(always)]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r"Clears the field bit"]
-    #[inline(always)]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r"Writes raw bits to the field"]
-    #[inline(always)]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !1) | (value as u32 & 1);
-        self.w
     }
 }
 impl R {
@@ -128,8 +94,8 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable bit inverse in each data word"]
     #[inline(always)]
-    pub fn bit_order(&mut self) -> BIT_ORDER_W {
-        BIT_ORDER_W { w: self }
+    pub fn bit_order(&mut self) -> BIT_ORDER_W<0> {
+        BIT_ORDER_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
