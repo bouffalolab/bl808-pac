@@ -34,7 +34,7 @@ impl From<crate::W<RECEIVE_TIMEOUT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `value` reader - Timeout interrupt triggering value"]
+#[doc = "Field `value` reader - Timeout interrupt triggering value by bits received"]
 pub struct VALUE_R(crate::FieldReader<u8>);
 impl VALUE_R {
     #[inline(always)]
@@ -49,7 +49,7 @@ impl core::ops::Deref for VALUE_R {
         &self.0
     }
 }
-#[doc = "Field `value` writer - Timeout interrupt triggering value"]
+#[doc = "Field `value` writer - Timeout interrupt triggering value by bits received"]
 pub struct VALUE_W<'a> {
     w: &'a mut W,
 }
@@ -62,14 +62,14 @@ impl<'a> VALUE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Timeout interrupt triggering value"]
+    #[doc = "Bits 0:7 - Timeout interrupt triggering value by bits received"]
     #[inline(always)]
     pub fn value(&self) -> VALUE_R {
         VALUE_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Timeout interrupt triggering value"]
+    #[doc = "Bits 0:7 - Timeout interrupt triggering value by bits received"]
     #[inline(always)]
     pub fn value(&mut self) -> VALUE_W {
         VALUE_W { w: self }
