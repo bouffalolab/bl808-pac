@@ -2882,14 +2882,14 @@ This field is ignored when `freerun` mode is enabled.</description>
             <field>
               <name>receive</name>
               <description>Period of each receive bit\n\n
-This field relates to baudrate.</description>
+Add 1 to this value and divide by clock to get receive baudrate.</description>
               <lsb>16</lsb>
               <msb>31</msb>
             </field>
             <field>
               <name>transmit</name>
               <description>Period of each transmit bit\n\n
-This field relates to baudrate.</description>
+Add 1 to this value and divide by clock to get transmit baudrate.</description>
               <lsb>0</lsb>
               <msb>15</msb>
             </field>
@@ -3506,8 +3506,74 @@ This field relates to baudrate.</description>
         /* 0x3C : urx_abr_prd_b23 */
         /* 0x40 : urx_abr_prd_b45 */
         /* 0x44 : urx_abr_prd_b67 */
-        /* 0x48 : urx_abr_pw_tol */
         -->
+        <register>
+          <name>pulse_tolerance</name>
+          <description>Pulse width tolerance for auto baudrate</description>
+          <addressOffset>0x48</addressOffset>
+          <resetValue>0x00000003</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <writeConstraint>
+            <useEnumeratedValues>true</useEnumeratedValues>
+          </writeConstraint>
+          <fields>
+            <field>
+              <name>by_five_five</name>
+              <description>Pulse width tolerance of auto baudrate detection using codeword 0x55</description>
+              <lsb>0</lsb>
+              <msb>7</msb>
+            </field>
+          </fields>
+        </register>
+        <!-- todo: 0x50: urx_bcr_int_cfg -->
+        <register>
+          <name>rs485_transmit</name>
+          <description>RS-485 mode transmit configuration</description>
+          <addressOffset>0x54</addressOffset>
+          <resetValue>0x00000002</resetValue>
+          <resetMask>0xffffffff</resetMask>
+          <fields>
+            <field>
+              <name>polarity</name>
+              <description>RS-485 pin polarity of Driver Enable (DE) pin</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+              <enumeratedValues>
+                <name>Polarity</name>
+                <enumeratedValue>
+                  <name>active_high</name>
+                  <description>Driver Enable (DE) pin is active high</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>active_low</name>
+                  <description>Driver Enable (DE) pin is active low</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>function</name>
+              <description>RS-485 transceiver mode enable</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>enable</name>
+                  <description>Enable RS-485 transceiver mode
+The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal.</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>disable</name>
+                  <description>Disable RS-485 transceiver mode
+The peripheral operates as normal UART.</description>
+                  <value>0</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
         <register>
           <name>fifo_config_0</name>
           <description>FIFO configuration register 0</description>

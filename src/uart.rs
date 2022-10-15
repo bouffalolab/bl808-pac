@@ -29,7 +29,13 @@ pub struct RegisterBlock {
     pub bus_state: BUS_STATE,
     #[doc = "0x34 - Auto baudrate detection register"]
     pub auto_baudrate: AUTO_BAUDRATE,
-    _reserved14: [u8; 0x48],
+    _reserved14: [u8; 0x10],
+    #[doc = "0x48 - Pulse width tolerance for auto baudrate"]
+    pub pulse_tolerance: PULSE_TOLERANCE,
+    _reserved15: [u8; 0x08],
+    #[doc = "0x54 - RS-485 mode transmit configuration"]
+    pub rs485_transmit: RS485_TRANSMIT,
+    _reserved16: [u8; 0x28],
     #[doc = "0x80 - FIFO configuration register 0"]
     pub fifo_config_0: FIFO_CONFIG_0,
     #[doc = "0x84 - FIFO configuration register 1"]
@@ -95,6 +101,14 @@ pub mod bus_state;
 pub type AUTO_BAUDRATE = crate::Reg<auto_baudrate::AUTO_BAUDRATE_SPEC>;
 #[doc = "Auto baudrate detection register"]
 pub mod auto_baudrate;
+#[doc = "pulse_tolerance (rw) register accessor: an alias for `Reg<PULSE_TOLERANCE_SPEC>`"]
+pub type PULSE_TOLERANCE = crate::Reg<pulse_tolerance::PULSE_TOLERANCE_SPEC>;
+#[doc = "Pulse width tolerance for auto baudrate"]
+pub mod pulse_tolerance;
+#[doc = "rs485_transmit (rw) register accessor: an alias for `Reg<RS485_TRANSMIT_SPEC>`"]
+pub type RS485_TRANSMIT = crate::Reg<rs485_transmit::RS485_TRANSMIT_SPEC>;
+#[doc = "RS-485 mode transmit configuration"]
+pub mod rs485_transmit;
 #[doc = "fifo_config_0 (rw) register accessor: an alias for `Reg<FIFO_CONFIG_0_SPEC>`"]
 pub type FIFO_CONFIG_0 = crate::Reg<fifo_config_0::FIFO_CONFIG_0_SPEC>;
 #[doc = "FIFO configuration register 0"]

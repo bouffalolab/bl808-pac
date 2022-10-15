@@ -34,34 +34,34 @@ impl From<crate::W<BIT_PERIOD_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `transmit` reader - Period of each transmit bit\n\n This field relates to baudrate."]
+#[doc = "Field `transmit` reader - Period of each transmit bit\n\n Add 1 to this value and divide by clock to get transmit baudrate."]
 pub type TRANSMIT_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `transmit` writer - Period of each transmit bit\n\n This field relates to baudrate."]
+#[doc = "Field `transmit` writer - Period of each transmit bit\n\n Add 1 to this value and divide by clock to get transmit baudrate."]
 pub type TRANSMIT_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, BIT_PERIOD_SPEC, u16, u16, 16, O>;
-#[doc = "Field `receive` reader - Period of each receive bit\n\n This field relates to baudrate."]
+#[doc = "Field `receive` reader - Period of each receive bit\n\n Add 1 to this value and divide by clock to get receive baudrate."]
 pub type RECEIVE_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `receive` writer - Period of each receive bit\n\n This field relates to baudrate."]
+#[doc = "Field `receive` writer - Period of each receive bit\n\n Add 1 to this value and divide by clock to get receive baudrate."]
 pub type RECEIVE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BIT_PERIOD_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 0:15 - Period of each transmit bit\n\n This field relates to baudrate."]
+    #[doc = "Bits 0:15 - Period of each transmit bit\n\n Add 1 to this value and divide by clock to get transmit baudrate."]
     #[inline(always)]
     pub fn transmit(&self) -> TRANSMIT_R {
         TRANSMIT_R::new((self.bits & 0xffff) as u16)
     }
-    #[doc = "Bits 16:31 - Period of each receive bit\n\n This field relates to baudrate."]
+    #[doc = "Bits 16:31 - Period of each receive bit\n\n Add 1 to this value and divide by clock to get receive baudrate."]
     #[inline(always)]
     pub fn receive(&self) -> RECEIVE_R {
         RECEIVE_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - Period of each transmit bit\n\n This field relates to baudrate."]
+    #[doc = "Bits 0:15 - Period of each transmit bit\n\n Add 1 to this value and divide by clock to get transmit baudrate."]
     #[inline(always)]
     pub fn transmit(&mut self) -> TRANSMIT_W<0> {
         TRANSMIT_W::new(self)
     }
-    #[doc = "Bits 16:31 - Period of each receive bit\n\n This field relates to baudrate."]
+    #[doc = "Bits 16:31 - Period of each receive bit\n\n Add 1 to this value and divide by clock to get receive baudrate."]
     #[inline(always)]
     pub fn receive(&mut self) -> RECEIVE_W<16> {
         RECEIVE_W::new(self)
