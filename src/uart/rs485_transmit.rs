@@ -39,9 +39,9 @@ pub type FUNCTION_R = crate::BitReader<FUNCTION_A>;
 #[doc = "RS-485 transceiver mode enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FUNCTION_A {
-    #[doc = "1: Enable RS-485 transceiver mode The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal."]
+    #[doc = "1: Enable RS-485 transceiver mode\n\n The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal."]
     ENABLE = 1,
-    #[doc = "0: Disable RS-485 transceiver mode The peripheral operates as normal UART."]
+    #[doc = "0: Disable RS-485 transceiver mode\n\n The peripheral operates as normal UART."]
     DISABLE = 0,
 }
 impl From<FUNCTION_A> for bool {
@@ -74,12 +74,12 @@ impl FUNCTION_R {
 pub type FUNCTION_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, RS485_TRANSMIT_SPEC, FUNCTION_A, O>;
 impl<'a, const O: u8> FUNCTION_W<'a, O> {
-    #[doc = "Enable RS-485 transceiver mode The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal."]
+    #[doc = "Enable RS-485 transceiver mode\n\n The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal."]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(FUNCTION_A::ENABLE)
     }
-    #[doc = "Disable RS-485 transceiver mode The peripheral operates as normal UART."]
+    #[doc = "Disable RS-485 transceiver mode\n\n The peripheral operates as normal UART."]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
         self.variant(FUNCTION_A::DISABLE)

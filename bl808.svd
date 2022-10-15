@@ -888,7 +888,14 @@
               <lsb>1</lsb>
               <msb>1</msb>
             </field>
-            <!-- todo: what does lz4_checksum mean? -->
+            <field>
+              <name>has_checksum</name>
+              <description>Does this block includes an LZ4 checksum?\n\n
+Users should read checksum flag from frame descriptor to fill in correct value
+for this register field.</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
           </fields>
         </register>
         <!-- todo: what does src_fix and dst_fix mean? -->
@@ -3560,13 +3567,13 @@ Add 1 to this value and divide by clock to get transmit baudrate.</description>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>enable</name>
-                  <description>Enable RS-485 transceiver mode
+                  <description>Enable RS-485 transceiver mode\n\n
 The peripheral is connected to RS-485 transceiver, and RTS signal output becomes Driver Enable (DE) signal.</description>
                   <value>1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>disable</name>
-                  <description>Disable RS-485 transceiver mode
+                  <description>Disable RS-485 transceiver mode\n\n
 The peripheral operates as normal UART.</description>
                   <value>0</value>
                 </enumeratedValue>

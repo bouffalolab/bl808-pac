@@ -42,6 +42,10 @@ pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, bool
 pub type SUSPEND_R = crate::BitReader<bool>;
 #[doc = "Field `suspend` writer - Suspend peripheral decompression"]
 pub type SUSPEND_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, bool, O>;
+#[doc = "Field `has_checksum` reader - Does this block includes an LZ4 checksum?\n\n Users should read checksum flag from frame descriptor to fill in correct value for this register field."]
+pub type HAS_CHECKSUM_R = crate::BitReader<bool>;
+#[doc = "Field `has_checksum` writer - Does this block includes an LZ4 checksum?\n\n Users should read checksum flag from frame descriptor to fill in correct value for this register field."]
+pub type HAS_CHECKSUM_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, bool, O>;
 impl R {
     #[doc = "Bit 0 - Enable peripheral decompression"]
     #[inline(always)]
@@ -52,6 +56,11 @@ impl R {
     #[inline(always)]
     pub fn suspend(&self) -> SUSPEND_R {
         SUSPEND_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 4 - Does this block includes an LZ4 checksum?\n\n Users should read checksum flag from frame descriptor to fill in correct value for this register field."]
+    #[inline(always)]
+    pub fn has_checksum(&self) -> HAS_CHECKSUM_R {
+        HAS_CHECKSUM_R::new(((self.bits >> 4) & 1) != 0)
     }
 }
 impl W {
@@ -64,6 +73,11 @@ impl W {
     #[inline(always)]
     pub fn suspend(&mut self) -> SUSPEND_W<1> {
         SUSPEND_W::new(self)
+    }
+    #[doc = "Bit 4 - Does this block includes an LZ4 checksum?\n\n Users should read checksum flag from frame descriptor to fill in correct value for this register field."]
+    #[inline(always)]
+    pub fn has_checksum(&mut self) -> HAS_CHECKSUM_W<4> {
+        HAS_CHECKSUM_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
