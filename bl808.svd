@@ -154,9 +154,107 @@
       </addressBlock>
       <registers>
         <register>
-          <name>todo</name>
+          <name>revision</name>
+          <description>Peripheral silicon revision</description>
+          <addressOffset>0x400</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>config_0</name>
+          <description>Arbitration configuration register 0</description>
+          <addressOffset>0x404</addressOffset>
+          <fields>
+            <field>
+              <name>function</name>
+              <description>Enable packet traffic arbitration</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+            </field>
+            <field>
+              <name>wifi</name>
+              <description>??</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+            </field>
+            <field>
+              <name>priority</name>
+              <description>??</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+            </field>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>bluetooth_transmit</name>
           <description>??</description>
-          <addressOffset>0</addressOffset>
+          <addressOffset>0x408</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- <register>
+          <name>bluetooth_transmit_abort</name>
+          <description>??</description>
+          <addressOffset>0x40C</addressOffset>
+          <fields>
+
+          </fields>
+        </register> -->
+        <register>
+          <name>bluetooth_receive</name>
+          <description>??</description>
+          <addressOffset>0x410</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- <register>
+          <name>bluetooth_receive_abort</name>
+          <description>??</description>
+          <addressOffset>0x414</addressOffset>
+          <fields>
+
+          </fields>
+        </register> -->
+        <register>
+          <name>wifi_transmit</name>
+          <description>??</description>
+          <addressOffset>0x418</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- <register>
+          <name>wifi_transmit_abort</name>
+          <description>??</description>
+          <addressOffset>0x41C</addressOffset>
+          <fields>
+
+          </fields>
+        </register> -->
+        <register>
+          <name>wifi_receive</name>
+          <description>??</description>
+          <addressOffset>0x420</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- <register>
+          <name>wifi_receive_abort</name>
+          <description>??</description>
+          <addressOffset>0x424</addressOffset>
+          <fields>
+
+          </fields>
+        </register> -->
+        <register>
+          <name>config_1</name>
+          <description>??</description>
+          <addressOffset>0x428</addressOffset>
           <fields>
             <!-- todo: fields -->
           </fields>
@@ -174,13 +272,46 @@
       </addressBlock>
       <registers>
         <register>
-          <name>todo</name>
+          <name>coex_control_0</name>
           <description>??</description>
-          <addressOffset>0</addressOffset>
+          <addressOffset>0x400</addressOffset>
           <fields>
             <!-- todo: fields -->
           </fields>
         </register>
+        <register>
+          <name>coex_pti</name>
+          <description>??</description>
+          <addressOffset>0x404</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>coex_state</name>
+          <description>??</description>
+          <addressOffset>0x408</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>coex_interrupt</name>
+          <description>??</description>
+          <addressOffset>0x40C</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <register>
+          <name>coex_control_1</name>
+          <description>??</description>
+          <addressOffset>0x410</addressOffset>
+          <fields>
+            <!-- todo: fields -->
+          </fields>
+        </register>
+        <!-- todo: registers -->
       </registers>
     </peripheral>>
     <peripheral>
