@@ -58,41 +58,49 @@ impl<'a, const O: u8> AUTO_BAUDRATE_FIVE_FIVE_W<'a, O> {
 impl W {
     #[doc = "Bit 0 - Write 1 to clear transmit transfer finish signal"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_transfer(&mut self) -> TRANSMIT_TRANSFER_W<0> {
         TRANSMIT_TRANSFER_W::new(self)
     }
     #[doc = "Bit 1 - Write 1 to clear receive transfer finish signal"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_transfer(&mut self) -> RECEIVE_TRANSFER_W<1> {
         RECEIVE_TRANSFER_W::new(self)
     }
     #[doc = "Bit 4 - Write 1 to clear receive timed-out"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_timeout(&mut self) -> RECEIVE_TIMEOUT_W<4> {
         RECEIVE_TIMEOUT_W::new(self)
     }
     #[doc = "Bit 5 - Write 1 to clear receive parity check failure"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_parity(&mut self) -> RECEIVE_PARITY_W<5> {
         RECEIVE_PARITY_W::new(self)
     }
     #[doc = "Bit 8 - Write 1 to clear receive LIN mode synchronization field error"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_sync_error(&mut self) -> RECEIVE_SYNC_ERROR_W<8> {
         RECEIVE_SYNC_ERROR_W::new(self)
     }
     #[doc = "Bit 9 - Write 1 to clear receive byte count reached"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_byte_count(&mut self) -> RECEIVE_BYTE_COUNT_W<9> {
         RECEIVE_BYTE_COUNT_W::new(self)
     }
     #[doc = "Bit 10 - Write 1 to clear receive auto baudrate detection finished using start bit"]
     #[inline(always)]
+    #[must_use]
     pub fn auto_baudrate_start_bit(&mut self) -> AUTO_BAUDRATE_START_BIT_W<10> {
         AUTO_BAUDRATE_START_BIT_W::new(self)
     }
     #[doc = "Bit 11 - Write 1 to clear receive auto baudrate detection finished using 0x55"]
     #[inline(always)]
+    #[must_use]
     pub fn auto_baudrate_five_five(&mut self) -> AUTO_BAUDRATE_FIVE_FIVE_W<11> {
         AUTO_BAUDRATE_FIVE_FIVE_W::new(self)
     }

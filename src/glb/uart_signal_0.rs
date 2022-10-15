@@ -267,46 +267,55 @@ impl R {
 impl W {
     #[doc = "Select peripheral function for UART signal [0-7]"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn function_0<const O: u8>(&mut self) -> FUNCTION_0_W<O> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 0:7 - Select peripheral function for UART signal 0"]
     #[inline(always)]
+    #[must_use]
     pub fn function_00(&mut self) -> FUNCTION_0_W<0> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 4:11 - Select peripheral function for UART signal 1"]
     #[inline(always)]
+    #[must_use]
     pub fn function_01(&mut self) -> FUNCTION_0_W<4> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 8:15 - Select peripheral function for UART signal 2"]
     #[inline(always)]
+    #[must_use]
     pub fn function_02(&mut self) -> FUNCTION_0_W<8> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 12:19 - Select peripheral function for UART signal 3"]
     #[inline(always)]
+    #[must_use]
     pub fn function_03(&mut self) -> FUNCTION_0_W<12> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 16:23 - Select peripheral function for UART signal 4"]
     #[inline(always)]
+    #[must_use]
     pub fn function_04(&mut self) -> FUNCTION_0_W<16> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 20:27 - Select peripheral function for UART signal 5"]
     #[inline(always)]
+    #[must_use]
     pub fn function_05(&mut self) -> FUNCTION_0_W<20> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 24:31 - Select peripheral function for UART signal 6"]
     #[inline(always)]
+    #[must_use]
     pub fn function_06(&mut self) -> FUNCTION_0_W<24> {
         FUNCTION_0_W::new(self)
     }
     #[doc = "Bits 28:35 - Select peripheral function for UART signal 7"]
     #[inline(always)]
+    #[must_use]
     pub fn function_07(&mut self) -> FUNCTION_0_W<28> {
         FUNCTION_0_W::new(self)
     }

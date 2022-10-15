@@ -104,11 +104,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Decompliation finished"]
     #[inline(always)]
+    #[must_use]
     pub fn done(&mut self) -> DONE_W<0> {
         DONE_W::new(self)
     }
     #[doc = "Bit 1 - Error occurred while decompliation"]
     #[inline(always)]
+    #[must_use]
     pub fn error(&mut self) -> ERROR_W<1> {
         ERROR_W::new(self)
     }

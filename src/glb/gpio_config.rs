@@ -607,81 +607,97 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable input signal"]
     #[inline(always)]
+    #[must_use]
     pub fn input_function(&mut self) -> INPUT_FUNCTION_W<0> {
         INPUT_FUNCTION_W::new(self)
     }
     #[doc = "Bit 1 - Enable schmitt trigger"]
     #[inline(always)]
+    #[must_use]
     pub fn schmitt(&mut self) -> SCHMITT_W<1> {
         SCHMITT_W::new(self)
     }
     #[doc = "Bits 2:3 - Drive strength"]
     #[inline(always)]
+    #[must_use]
     pub fn drive(&mut self) -> DRIVE_W<2> {
         DRIVE_W::new(self)
     }
     #[doc = "Bit 4 - Enable internal pull-up"]
     #[inline(always)]
+    #[must_use]
     pub fn pull_up(&mut self) -> PULL_UP_W<4> {
         PULL_UP_W::new(self)
     }
     #[doc = "Bit 5 - Enable internal pull-down"]
     #[inline(always)]
+    #[must_use]
     pub fn pull_down(&mut self) -> PULL_DOWN_W<5> {
         PULL_DOWN_W::new(self)
     }
     #[doc = "Bit 6 - Enable output signal"]
     #[inline(always)]
+    #[must_use]
     pub fn output_function(&mut self) -> OUTPUT_FUNCTION_W<6> {
         OUTPUT_FUNCTION_W::new(self)
     }
     #[doc = "Bits 8:12 - Pin alternate function switch"]
     #[inline(always)]
+    #[must_use]
     pub fn alternate(&mut self) -> ALTERNATE_W<8> {
         ALTERNATE_W::new(self)
     }
     #[doc = "Bits 16:19 - Select pin interrupt mode"]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt_mode(&mut self) -> INTERRUPT_MODE_W<16> {
         INTERRUPT_MODE_W::new(self)
     }
     #[doc = "Bit 20 - Clear pin interrupt flag"]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt_clear(&mut self) -> INTERRUPT_CLEAR_W<20> {
         INTERRUPT_CLEAR_W::new(self)
     }
     #[doc = "Bit 21 - Pin interrupt state"]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt_state(&mut self) -> INTERRUPT_STATE_W<21> {
         INTERRUPT_STATE_W::new(self)
     }
     #[doc = "Bit 22 - Pin interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt_mask(&mut self) -> INTERRUPT_MASK_W<22> {
         INTERRUPT_MASK_W::new(self)
     }
     #[doc = "Bit 24 - Output value"]
     #[inline(always)]
+    #[must_use]
     pub fn output_value(&mut self) -> OUTPUT_VALUE_W<24> {
         OUTPUT_VALUE_W::new(self)
     }
     #[doc = "Bit 25 - Set output value to 1"]
     #[inline(always)]
+    #[must_use]
     pub fn output_set(&mut self) -> OUTPUT_SET_W<25> {
         OUTPUT_SET_W::new(self)
     }
     #[doc = "Bit 26 - Clear output value to 0"]
     #[inline(always)]
+    #[must_use]
     pub fn output_clear(&mut self) -> OUTPUT_CLEAR_W<26> {
         OUTPUT_CLEAR_W::new(self)
     }
     #[doc = "Bit 28 - Input value"]
     #[inline(always)]
+    #[must_use]
     pub fn input_value(&mut self) -> INPUT_VALUE_W<28> {
         INPUT_VALUE_W::new(self)
     }
     #[doc = "Bits 30:31 - Pin input/output mode switch"]
     #[inline(always)]
+    #[must_use]
     pub fn pin_mode(&mut self) -> PIN_MODE_W<30> {
         PIN_MODE_W::new(self)
     }

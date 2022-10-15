@@ -151,11 +151,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - RS-485 transceiver mode enable"]
     #[inline(always)]
+    #[must_use]
     pub fn function(&mut self) -> FUNCTION_W<0> {
         FUNCTION_W::new(self)
     }
     #[doc = "Bit 1 - RS-485 pin polarity of Driver Enable (DE) pin"]
     #[inline(always)]
+    #[must_use]
     pub fn polarity(&mut self) -> POLARITY_W<1> {
         POLARITY_W::new(self)
     }

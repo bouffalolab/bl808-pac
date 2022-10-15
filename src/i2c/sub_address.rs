@@ -68,26 +68,31 @@ impl R {
 impl W {
     #[doc = "I2C sub-address byte [0-3]"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn byte<const O: u8>(&mut self) -> BYTE_W<O> {
         BYTE_W::new(self)
     }
     #[doc = "Bits 0:7 - I2C sub-address byte 0"]
     #[inline(always)]
+    #[must_use]
     pub fn byte0(&mut self) -> BYTE_W<0> {
         BYTE_W::new(self)
     }
     #[doc = "Bits 8:15 - I2C sub-address byte 1"]
     #[inline(always)]
+    #[must_use]
     pub fn byte1(&mut self) -> BYTE_W<8> {
         BYTE_W::new(self)
     }
     #[doc = "Bits 16:23 - I2C sub-address byte 2"]
     #[inline(always)]
+    #[must_use]
     pub fn byte2(&mut self) -> BYTE_W<16> {
         BYTE_W::new(self)
     }
     #[doc = "Bits 24:31 - I2C sub-address byte 3"]
     #[inline(always)]
+    #[must_use]
     pub fn byte3(&mut self) -> BYTE_W<24> {
         BYTE_W::new(self)
     }

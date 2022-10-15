@@ -169,21 +169,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable manual override of transmit signal"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_signal(&mut self) -> TRANSMIT_SIGNAL_W<0> {
         TRANSMIT_SIGNAL_W::new(self)
     }
     #[doc = "Bit 1 - Value to override transmit signal if override is enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_value(&mut self) -> TRANSMIT_VALUE_W<1> {
         TRANSMIT_VALUE_W::new(self)
     }
     #[doc = "Bit 2 - Enable manual override of Request-to-Send flow control signal"]
     #[inline(always)]
+    #[must_use]
     pub fn rts_signal(&mut self) -> RTS_SIGNAL_W<2> {
         RTS_SIGNAL_W::new(self)
     }
     #[doc = "Bit 3 - Value to override Request-to-Send signal if override is enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn rts_value(&mut self) -> RTS_VALUE_W<3> {
         RTS_VALUE_W::new(self)
     }

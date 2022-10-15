@@ -66,16 +66,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable peripheral decompression"]
     #[inline(always)]
+    #[must_use]
     pub fn enable(&mut self) -> ENABLE_W<0> {
         ENABLE_W::new(self)
     }
     #[doc = "Bit 1 - Suspend peripheral decompression"]
     #[inline(always)]
+    #[must_use]
     pub fn suspend(&mut self) -> SUSPEND_W<1> {
         SUSPEND_W::new(self)
     }
     #[doc = "Bit 4 - Does this block includes an LZ4 checksum?\n\n Users should read checksum flag from frame descriptor to fill in correct value for this register field."]
     #[inline(always)]
+    #[must_use]
     pub fn has_checksum(&mut self) -> HAS_CHECKSUM_W<4> {
         HAS_CHECKSUM_W::new(self)
     }

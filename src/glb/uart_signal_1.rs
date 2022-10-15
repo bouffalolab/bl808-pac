@@ -73,26 +73,31 @@ impl W {
     #[doc = "Select peripheral function for UART signal [0-3]
 (offset by 8)"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn function_1<const O: u8>(&mut self) -> FUNCTION_1_W<O> {
         FUNCTION_1_W::new(self)
     }
     #[doc = "Bits 0:7 - Select peripheral function for UART signal 0 (offset by 8)"]
     #[inline(always)]
+    #[must_use]
     pub fn function_10(&mut self) -> FUNCTION_1_W<0> {
         FUNCTION_1_W::new(self)
     }
     #[doc = "Bits 4:11 - Select peripheral function for UART signal 1 (offset by 8)"]
     #[inline(always)]
+    #[must_use]
     pub fn function_11(&mut self) -> FUNCTION_1_W<4> {
         FUNCTION_1_W::new(self)
     }
     #[doc = "Bits 8:15 - Select peripheral function for UART signal 2 (offset by 8)"]
     #[inline(always)]
+    #[must_use]
     pub fn function_12(&mut self) -> FUNCTION_1_W<8> {
         FUNCTION_1_W::new(self)
     }
     #[doc = "Bits 12:19 - Select peripheral function for UART signal 3 (offset by 8)"]
     #[inline(always)]
+    #[must_use]
     pub fn function_13(&mut self) -> FUNCTION_1_W<12> {
         FUNCTION_1_W::new(self)
     }

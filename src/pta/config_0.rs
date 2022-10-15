@@ -66,16 +66,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable packet traffic arbitration"]
     #[inline(always)]
+    #[must_use]
     pub fn function(&mut self) -> FUNCTION_W<0> {
         FUNCTION_W::new(self)
     }
     #[doc = "Bit 1 - ??"]
     #[inline(always)]
+    #[must_use]
     pub fn wifi(&mut self) -> WIFI_W<1> {
         WIFI_W::new(self)
     }
     #[doc = "Bit 4 - ??"]
     #[inline(always)]
+    #[must_use]
     pub fn priority(&mut self) -> PRIORITY_W<4> {
         PRIORITY_W::new(self)
     }

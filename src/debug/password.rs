@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Read or write password in word"]
     #[inline(always)]
+    #[must_use]
     pub fn word(&mut self) -> WORD_W<0> {
         WORD_W::new(self)
     }

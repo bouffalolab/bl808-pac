@@ -58,11 +58,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Period of each transmit bit\n\n Add 1 to this value and divide by clock to get transmit baudrate."]
     #[inline(always)]
+    #[must_use]
     pub fn transmit(&mut self) -> TRANSMIT_W<0> {
         TRANSMIT_W::new(self)
     }
     #[doc = "Bits 16:31 - Period of each receive bit\n\n Add 1 to this value and divide by clock to get receive baudrate."]
     #[inline(always)]
+    #[must_use]
     pub fn receive(&mut self) -> RECEIVE_W<16> {
         RECEIVE_W::new(self)
     }

@@ -224,21 +224,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable signal of transmit DMA interface"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_dma(&mut self) -> TRANSMIT_DMA_W<0> {
         TRANSMIT_DMA_W::new(self)
     }
     #[doc = "Bit 1 - Enable signal of receive DMA interface"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_dma(&mut self) -> RECEIVE_DMA_W<1> {
         RECEIVE_DMA_W::new(self)
     }
     #[doc = "Bit 2 - Clears transmit FIFO overflow and underflow flags"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_clear(&mut self) -> TRANSMIT_CLEAR_W<2> {
         TRANSMIT_CLEAR_W::new(self)
     }
     #[doc = "Bit 3 - Clears receive FIFO overflow and underflow flags"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_clear(&mut self) -> RECEIVE_CLEAR_W<3> {
         RECEIVE_CLEAR_W::new(self)
     }

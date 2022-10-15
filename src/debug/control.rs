@@ -79,11 +79,13 @@ impl R {
 impl W {
     #[doc = "Bit 1 - ??"]
     #[inline(always)]
+    #[must_use]
     pub fn password_trigger(&mut self) -> PASSWORD_TRIGGER_W<1> {
         PASSWORD_TRIGGER_W::new(self)
     }
     #[doc = "Bits 4:23 - ??"]
     #[inline(always)]
+    #[must_use]
     pub fn password_count(&mut self) -> PASSWORD_COUNT_W<4> {
         PASSWORD_COUNT_W::new(self)
     }

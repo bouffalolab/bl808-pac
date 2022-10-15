@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Start position of received pulse recovered from IR signal"]
     #[inline(always)]
+    #[must_use]
     pub fn start(&mut self) -> START_W<0> {
         START_W::new(self)
     }

@@ -59,11 +59,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Start position of transmit IR pulse"]
     #[inline(always)]
+    #[must_use]
     pub fn start(&mut self) -> START_W<0> {
         START_W::new(self)
     }
     #[doc = "Bits 16:31 - Stop position of transmit IR pulse"]
     #[inline(always)]
+    #[must_use]
     pub fn stop(&mut self) -> STOP_W<16> {
         STOP_W::new(self)
     }

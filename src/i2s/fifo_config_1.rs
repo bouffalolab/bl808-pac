@@ -73,11 +73,13 @@ impl R {
 impl W {
     #[doc = "Bits 16:19 - Transmit FIFO threshold\n\n DMA request will not be asserted if `transmit_available` is less than this value"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_threshold(&mut self) -> TRANSMIT_THRESHOLD_W<16> {
         TRANSMIT_THRESHOLD_W::new(self)
     }
     #[doc = "Bits 24:27 - Receive FIFO threshold\n\n DMA request will not be asserted if `receive_available` is less than this value"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_threshold(&mut self) -> RECEIVE_THRESHOLD_W<24> {
         RECEIVE_THRESHOLD_W::new(self)
     }

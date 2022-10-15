@@ -24,6 +24,7 @@ pub type VALUE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DATA_WRITE_SPEC,
 impl W {
     #[doc = "Bits 0:7 - Write data to FIFO"]
     #[inline(always)]
+    #[must_use]
     pub fn value(&mut self) -> VALUE_W<0> {
         VALUE_W::new(self)
     }

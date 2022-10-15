@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Timeout interrupt triggering value by bits received"]
     #[inline(always)]
+    #[must_use]
     pub fn value(&mut self) -> VALUE_W<0> {
         VALUE_W::new(self)
     }

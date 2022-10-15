@@ -102,6 +102,7 @@ impl R {
 impl W {
     #[doc = "Bit 1 - Force clear I2C bus busy state\n\n Not for normal use; only use when I2C bus hangs"]
     #[inline(always)]
+    #[must_use]
     pub fn force_clear(&mut self) -> FORCE_CLEAR_W<1> {
         FORCE_CLEAR_W::new(self)
     }

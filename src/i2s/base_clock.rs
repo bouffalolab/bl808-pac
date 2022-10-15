@@ -59,11 +59,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - Lower half of base clock dividing factor"]
     #[inline(always)]
+    #[must_use]
     pub fn divide_low(&mut self) -> DIVIDE_LOW_W<0> {
         DIVIDE_LOW_W::new(self)
     }
     #[doc = "Bits 16:27 - Higher half of base clock dividing factor"]
     #[inline(always)]
+    #[must_use]
     pub fn divide_high(&mut self) -> DIVIDE_HIGH_W<16> {
         DIVIDE_HIGH_W::new(self)
     }

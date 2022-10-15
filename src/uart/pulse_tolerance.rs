@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Pulse width tolerance of auto baudrate detection using codeword 0x55"]
     #[inline(always)]
+    #[must_use]
     pub fn by_five_five(&mut self) -> BY_FIVE_FIVE_W<0> {
         BY_FIVE_FIVE_W::new(self)
     }

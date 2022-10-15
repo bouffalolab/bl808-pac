@@ -430,46 +430,55 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable signal of I2C master function\n\n Asserting this bit will trigger the transaction, and should be de-asserted after finish."]
     #[inline(always)]
+    #[must_use]
     pub fn master_enable(&mut self) -> MASTER_ENABLE_W<0> {
         MASTER_ENABLE_W::new(self)
     }
     #[doc = "Bit 1 - Packet transfer direction"]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_direction(&mut self) -> TRANSFER_DIRECTION_W<1> {
         TRANSFER_DIRECTION_W::new(self)
     }
     #[doc = "Bit 2 - Enable de-glitch function on all input pins"]
     #[inline(always)]
+    #[must_use]
     pub fn deglitch_enable(&mut self) -> DEGLITCH_ENABLE_W<2> {
         DEGLITCH_ENABLE_W::new(self)
     }
     #[doc = "Bit 3 - Enable I2C clock synchronization\n\n Enable this bit to support multi-master and clock-stretching. It should not be turned-off normally."]
     #[inline(always)]
+    #[must_use]
     pub fn clock_synchronize(&mut self) -> CLOCK_SYNCHRONIZE_W<3> {
         CLOCK_SYNCHRONIZE_W::new(self)
     }
     #[doc = "Bit 4 - Enable sub-address fields"]
     #[inline(always)]
+    #[must_use]
     pub fn sub_address_enable(&mut self) -> SUB_ADDRESS_ENABLE_W<4> {
         SUB_ADDRESS_ENABLE_W::new(self)
     }
     #[doc = "Bits 5:6 - Byte count for I2C sub-address"]
     #[inline(always)]
+    #[must_use]
     pub fn sub_address_length(&mut self) -> SUB_ADDRESS_LENGTH_W<5> {
         SUB_ADDRESS_LENGTH_W::new(self)
     }
     #[doc = "Bits 8:14 - I2C transaction slave address"]
     #[inline(always)]
+    #[must_use]
     pub fn slave_address(&mut self) -> SLAVE_ADDRESS_W<8> {
         SLAVE_ADDRESS_W::new(self)
     }
     #[doc = "Bits 16:23 - Byte count for each packet"]
     #[inline(always)]
+    #[must_use]
     pub fn packet_length(&mut self) -> PACKET_LENGTH_W<16> {
         PACKET_LENGTH_W::new(self)
     }
     #[doc = "Bits 28:31 - De-glitch function cycle count"]
     #[inline(always)]
+    #[must_use]
     pub fn deglitch_cycle(&mut self) -> DEGLITCH_CYCLE_W<28> {
         DEGLITCH_CYCLE_W::new(self)
     }

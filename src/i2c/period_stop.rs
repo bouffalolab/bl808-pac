@@ -68,26 +68,31 @@ impl R {
 impl W {
     #[doc = "Length of stop condition phase [0-3]"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn phase<const O: u8>(&mut self) -> PHASE_W<O> {
         PHASE_W::new(self)
     }
     #[doc = "Bits 0:7 - Length of stop condition phase 0"]
     #[inline(always)]
+    #[must_use]
     pub fn phase0(&mut self) -> PHASE_W<0> {
         PHASE_W::new(self)
     }
     #[doc = "Bits 8:15 - Length of stop condition phase 1"]
     #[inline(always)]
+    #[must_use]
     pub fn phase1(&mut self) -> PHASE_W<8> {
         PHASE_W::new(self)
     }
     #[doc = "Bits 16:23 - Length of stop condition phase 2"]
     #[inline(always)]
+    #[must_use]
     pub fn phase2(&mut self) -> PHASE_W<16> {
         PHASE_W::new(self)
     }
     #[doc = "Bits 24:31 - Length of stop condition phase 3"]
     #[inline(always)]
+    #[must_use]
     pub fn phase3(&mut self) -> PHASE_W<24> {
         PHASE_W::new(self)
     }

@@ -673,61 +673,73 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable transmit function"]
     #[inline(always)]
+    #[must_use]
     pub fn function(&mut self) -> FUNCTION_W<0> {
         FUNCTION_W::new(self)
     }
     #[doc = "Bit 1 - Enable Clear-to-Send flow control signal"]
     #[inline(always)]
+    #[must_use]
     pub fn cts(&mut self) -> CTS_W<1> {
         CTS_W::new(self)
     }
     #[doc = "Bit 2 - Enable freerun mode"]
     #[inline(always)]
+    #[must_use]
     pub fn freerun(&mut self) -> FREERUN_W<2> {
         FREERUN_W::new(self)
     }
     #[doc = "Bit 3 - Local Interconnect Network protocol enable"]
     #[inline(always)]
+    #[must_use]
     pub fn lin_transmit(&mut self) -> LIN_TRANSMIT_W<3> {
         LIN_TRANSMIT_W::new(self)
     }
     #[doc = "Bit 4 - Enable transmit parity check"]
     #[inline(always)]
+    #[must_use]
     pub fn parity_enable(&mut self) -> PARITY_ENABLE_W<4> {
         PARITY_ENABLE_W::new(self)
     }
     #[doc = "Bit 5 - Select transmit parity mode if enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn parity_mode(&mut self) -> PARITY_MODE_W<5> {
         PARITY_MODE_W::new(self)
     }
     #[doc = "Bit 6 - Enable IR transmit mode"]
     #[inline(always)]
+    #[must_use]
     pub fn ir_transmit(&mut self) -> IR_TRANSMIT_W<6> {
         IR_TRANSMIT_W::new(self)
     }
     #[doc = "Bit 7 - Inverse transmit signal output in IR mode"]
     #[inline(always)]
+    #[must_use]
     pub fn ir_inverse(&mut self) -> IR_INVERSE_W<7> {
         IR_INVERSE_W::new(self)
     }
     #[doc = "Bits 8:10 - Bit count for each transmit data word"]
     #[inline(always)]
+    #[must_use]
     pub fn word_length(&mut self) -> WORD_LENGTH_W<8> {
         WORD_LENGTH_W::new(self)
     }
     #[doc = "Bits 11:12 - Number of stop bits"]
     #[inline(always)]
+    #[must_use]
     pub fn stop_bits(&mut self) -> STOP_BITS_W<11> {
         STOP_BITS_W::new(self)
     }
     #[doc = "Bits 13:15 - Number of break bits for LIN protocol"]
     #[inline(always)]
+    #[must_use]
     pub fn break_bits(&mut self) -> BREAK_BITS_W<13> {
         BREAK_BITS_W::new(self)
     }
     #[doc = "Bits 16:31 - Length of words per UART transmit transfer\n\n This field is ignored when `freerun` mode is enabled."]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_length(&mut self) -> TRANSFER_LENGTH_W<16> {
         TRANSFER_LENGTH_W::new(self)
     }

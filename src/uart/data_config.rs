@@ -94,6 +94,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable bit inverse in each data word"]
     #[inline(always)]
+    #[must_use]
     pub fn bit_order(&mut self) -> BIT_ORDER_W<0> {
         BIT_ORDER_W::new(self)
     }

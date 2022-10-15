@@ -253,36 +253,43 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable signal of transmit DMA interface"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_dma(&mut self) -> TRANSMIT_DMA_W<0> {
         TRANSMIT_DMA_W::new(self)
     }
     #[doc = "Bit 1 - Enable signal of receive DMA interface"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_dma(&mut self) -> RECEIVE_DMA_W<1> {
         RECEIVE_DMA_W::new(self)
     }
     #[doc = "Bit 2 - Clears transmit FIFO overflow and underflow flags"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_clear(&mut self) -> TRANSMIT_CLEAR_W<2> {
         TRANSMIT_CLEAR_W::new(self)
     }
     #[doc = "Bit 3 - Clears receive FIFO overflow and underflow flags"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_clear(&mut self) -> RECEIVE_CLEAR_W<3> {
         RECEIVE_CLEAR_W::new(self)
     }
     #[doc = "Bit 8"]
     #[inline(always)]
+    #[must_use]
     pub fn merge_left_right(&mut self) -> MERGE_LEFT_RIGHT_W<8> {
         MERGE_LEFT_RIGHT_W::new(self)
     }
     #[doc = "Bit 9"]
     #[inline(always)]
+    #[must_use]
     pub fn swap_left_right(&mut self) -> SWAP_LEFT_RIGHT_W<9> {
         SWAP_LEFT_RIGHT_W::new(self)
     }
     #[doc = "Bit 10"]
     #[inline(always)]
+    #[must_use]
     pub fn left_justified(&mut self) -> LEFT_JUSTIFIED_W<10> {
         LEFT_JUSTIFIED_W::new(self)
     }

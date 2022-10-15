@@ -149,36 +149,43 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Buffer transmitted interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn buffer_transmitted(&mut self) -> BUFFER_TRANSMITTED_W<0> {
         BUFFER_TRANSMITTED_W::new(self)
     }
     #[doc = "Bit 1 - Transmit error interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_error(&mut self) -> TRANSMIT_ERROR_W<1> {
         TRANSMIT_ERROR_W::new(self)
     }
     #[doc = "Bit 2 - Frame received interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn frame_received(&mut self) -> FRAME_RECEIVED_W<2> {
         FRAME_RECEIVED_W::new(self)
     }
     #[doc = "Bit 3 - Receive error interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_error(&mut self) -> RECEIVE_ERROR_W<3> {
         RECEIVE_ERROR_W::new(self)
     }
     #[doc = "Bit 4 - Lack of buffer interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn busy(&mut self) -> BUSY_W<4> {
         BUSY_W::new(self)
     }
     #[doc = "Bit 5 - Control frame transmitted interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn control_transmit(&mut self) -> CONTROL_TRANSMIT_W<5> {
         CONTROL_TRANSMIT_W::new(self)
     }
     #[doc = "Bit 6 - Control frame received interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn control_receive(&mut self) -> CONTROL_RECEIVE_W<6> {
         CONTROL_RECEIVE_W::new(self)
     }

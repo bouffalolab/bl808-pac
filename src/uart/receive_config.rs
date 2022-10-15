@@ -591,56 +591,67 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable receive function"]
     #[inline(always)]
+    #[must_use]
     pub fn function(&mut self) -> FUNCTION_W<0> {
         FUNCTION_W::new(self)
     }
     #[doc = "Bit 1 - Enable receive auto baudrate detection"]
     #[inline(always)]
+    #[must_use]
     pub fn auto_baudrate(&mut self) -> AUTO_BAUDRATE_W<1> {
         AUTO_BAUDRATE_W::new(self)
     }
     #[doc = "Bit 3 - Local Interconnect Network protocol enable"]
     #[inline(always)]
+    #[must_use]
     pub fn lin_receive(&mut self) -> LIN_RECEIVE_W<3> {
         LIN_RECEIVE_W::new(self)
     }
     #[doc = "Bit 4 - Enable receive parity check"]
     #[inline(always)]
+    #[must_use]
     pub fn parity_enable(&mut self) -> PARITY_ENABLE_W<4> {
         PARITY_ENABLE_W::new(self)
     }
     #[doc = "Bit 5 - Select receive parity mode if enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn parity_mode(&mut self) -> PARITY_MODE_W<5> {
         PARITY_MODE_W::new(self)
     }
     #[doc = "Bit 6 - Enable IR receive mode"]
     #[inline(always)]
+    #[must_use]
     pub fn ir_receive(&mut self) -> IR_RECEIVE_W<6> {
         IR_RECEIVE_W::new(self)
     }
     #[doc = "Bit 7 - Inverse receive signal output in IR mode"]
     #[inline(always)]
+    #[must_use]
     pub fn ir_inverse(&mut self) -> IR_INVERSE_W<7> {
         IR_INVERSE_W::new(self)
     }
     #[doc = "Bits 8:10 - Bit count for each receive data word"]
     #[inline(always)]
+    #[must_use]
     pub fn word_length(&mut self) -> WORD_LENGTH_W<8> {
         WORD_LENGTH_W::new(self)
     }
     #[doc = "Bit 11 - Enable receive de-glitch function"]
     #[inline(always)]
+    #[must_use]
     pub fn deglitch_enable(&mut self) -> DEGLITCH_ENABLE_W<11> {
         DEGLITCH_ENABLE_W::new(self)
     }
     #[doc = "Bits 12:15 - De-glitch function cycle count"]
     #[inline(always)]
+    #[must_use]
     pub fn deglitch_cycle(&mut self) -> DEGLITCH_CYCLE_W<12> {
         DEGLITCH_CYCLE_W::new(self)
     }
     #[doc = "Bits 16:31 - Length of words per UART receive transfer"]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_length(&mut self) -> TRANSFER_LENGTH_W<16> {
         TRANSFER_LENGTH_W::new(self)
     }

@@ -343,76 +343,91 @@ impl R {
 impl W {
     #[doc = "Bit 8 - Transfer ended interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_end_mask(&mut self) -> TRANSFER_END_MASK_W<8> {
         TRANSFER_END_MASK_W::new(self)
     }
     #[doc = "Bit 9 - Transmit FIFO ready interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_fifo_ready_mask(&mut self) -> TRANSMIT_FIFO_READY_MASK_W<9> {
         TRANSMIT_FIFO_READY_MASK_W::new(self)
     }
     #[doc = "Bit 10 - Receive FIFO ready interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_fifo_ready_mask(&mut self) -> RECEIVE_FIFO_READY_MASK_W<10> {
         RECEIVE_FIFO_READY_MASK_W::new(self)
     }
     #[doc = "Bit 11 - Not-acknowledged response interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn not_acknowledged_mask(&mut self) -> NOT_ACKNOWLEDGED_MASK_W<11> {
         NOT_ACKNOWLEDGED_MASK_W::new(self)
     }
     #[doc = "Bit 12 - Arbitration lost interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn arbitrate_lost_mask(&mut self) -> ARBITRATE_LOST_MASK_W<12> {
         ARBITRATE_LOST_MASK_W::new(self)
     }
     #[doc = "Bit 13 - Transmit or receive FIFO error interrupt mask"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_error_mask(&mut self) -> FIFO_ERROR_MASK_W<13> {
         FIFO_ERROR_MASK_W::new(self)
     }
     #[doc = "Bit 16 - Write 1 to clear transfer ended"]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_end_clear(&mut self) -> TRANSFER_END_CLEAR_W<16> {
         TRANSFER_END_CLEAR_W::new(self)
     }
     #[doc = "Bit 19 - Write 1 to clear not-acknowledged response"]
     #[inline(always)]
+    #[must_use]
     pub fn not_acknowledged_clear(&mut self) -> NOT_ACKNOWLEDGED_CLEAR_W<19> {
         NOT_ACKNOWLEDGED_CLEAR_W::new(self)
     }
     #[doc = "Bit 20 - Write 1 to clear arbitration lost"]
     #[inline(always)]
+    #[must_use]
     pub fn arbitrate_lost_clear(&mut self) -> ARBITRATE_LOST_CLEAR_W<20> {
         ARBITRATE_LOST_CLEAR_W::new(self)
     }
     #[doc = "Bit 24 - Transfer ended interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn transfer_end_enable(&mut self) -> TRANSFER_END_ENABLE_W<24> {
         TRANSFER_END_ENABLE_W::new(self)
     }
     #[doc = "Bit 25 - Transmit FIFO ready interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn transmit_fifo_ready_enable(&mut self) -> TRANSMIT_FIFO_READY_ENABLE_W<25> {
         TRANSMIT_FIFO_READY_ENABLE_W::new(self)
     }
     #[doc = "Bit 26 - Receive FIFO ready interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn receive_fifo_ready_enable(&mut self) -> RECEIVE_FIFO_READY_ENABLE_W<26> {
         RECEIVE_FIFO_READY_ENABLE_W::new(self)
     }
     #[doc = "Bit 27 - Not-acknowledged response interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn not_acknowledged_enable(&mut self) -> NOT_ACKNOWLEDGED_ENABLE_W<27> {
         NOT_ACKNOWLEDGED_ENABLE_W::new(self)
     }
     #[doc = "Bit 28 - Arbitration lost interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn arbitrate_lost_enable(&mut self) -> ARBITRATE_LOST_ENABLE_W<28> {
         ARBITRATE_LOST_ENABLE_W::new(self)
     }
     #[doc = "Bit 29 - Transmit or receive FIFO error interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_error_enable(&mut self) -> FIFO_ERROR_ENABLE_W<29> {
         FIFO_ERROR_ENABLE_W::new(self)
     }

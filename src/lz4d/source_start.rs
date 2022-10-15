@@ -57,11 +57,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:25 - Start address"]
     #[inline(always)]
+    #[must_use]
     pub fn start(&mut self) -> START_W<0> {
         START_W::new(self)
     }
     #[doc = "Bits 26:31 - Address base"]
     #[inline(always)]
+    #[must_use]
     pub fn base(&mut self) -> BASE_W<26> {
         BASE_W::new(self)
     }

@@ -130,16 +130,19 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - Peripheral clock divide factor"]
     #[inline(always)]
+    #[must_use]
     pub fn clock_divide(&mut self) -> CLOCK_DIVIDE_W<0> {
         CLOCK_DIVIDE_W::new(self)
     }
     #[doc = "Bit 4 - Peripheral level clock gate enable"]
     #[inline(always)]
+    #[must_use]
     pub fn clock_enable(&mut self) -> CLOCK_ENABLE_W<4> {
         CLOCK_ENABLE_W::new(self)
     }
     #[doc = "Bits 25:31 - Select interface mode for UART2 peripheral"]
     #[inline(always)]
+    #[must_use]
     pub fn uart2_mode(&mut self) -> UART2_MODE_W<25> {
         UART2_MODE_W::new(self)
     }
