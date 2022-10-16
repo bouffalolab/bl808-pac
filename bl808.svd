@@ -1669,19 +1669,157 @@ DMA request will not be asserted if `transmit_available` is less than this value
           <description>Pulse-Width Modulation channel group</description>
           <addressOffset>0x40</addressOffset>
           <register>
-            <name>config_0</name>
-            <description>Configuration register 0</description>
+            <name>config</name>
+            <description>Peripheral group configuration</description>
             <addressOffset>0x00</addressOffset>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <name>clock_select</name>
+                <description>Select group clock source</description>
+                <lsb>30</lsb>
+                <msb>31</msb>
+                <writeConstraint>
+                  <useEnumeratedValues>true</useEnumeratedValues>
+                </writeConstraint>
+                <enumeratedValues>
+                  <name>ClockSource</name>
+                  <enumeratedValue>
+                    <name>xtal</name>
+                    <description>External crystal as clock source</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>bclk</name>
+                    <description>Bus clock as clock source</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>f32k</name>
+                    <description>32-kHz clock source</description>
+                    <value>2</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <name>stop_state</name>
+                <description>Is this peripheral stopped?</description>
+                <lsb>29</lsb>
+                <msb>29</msb>
+              </field>
+              <field>
+                <name>stop_mode</name>
+                <description>Mode to stop this peripheral</description>
+                <lsb>28</lsb>
+                <msb>28</msb>
+              </field>
+              <field>
+                <name>stop_function</name>
+                <description>Enable or disable stop function</description>
+                <lsb>27</lsb>
+                <msb>27</msb>
+              </field>
+              <field>
+                <name>external_polarity</name>
+                <description>Polarity for external pin break function</description>
+                <lsb>26</lsb>
+                <msb>26</msb>
+              </field> 
+              <field>
+                <name>external_break</name>
+                <description>Enable external pin signal break</description>
+                <lsb>25</lsb>
+                <msb>25</msb>
+              </field>
+              <field>
+                <name>software_break</name>
+                <description>Enable software signal break</description>
+                <lsb>24</lsb>
+                <msb>24</msb>
+              </field> 
+              <field>
+                <name>adc_trigger_source</name>
+                <description>Select channel in Analog-digital Converter to interace with this peripheral\n\n
+**This field only works with PWM0.** PWM1 does not have this feature.</description>
+                <lsb>20</lsb>
+                <msb>23</msb>
+              </field>
+              <field>
+                <name>stop_on_repeat</name>
+                <description>??</description>
+                <lsb>19</lsb>
+                <msb>19</msb>
+              </field>
             </fields>
           </register>
           <register>
-            <name>config_1</name>
-            <description>Configuration register 1</description>
+            <name>channel</name>
+            <description>Channel configuration register</description>
             <addressOffset>0x04</addressOffset>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>4</dimIncrement>
+                <name>positive_signal[%s]</name>
+                <description>Enable or disable positive signal for channel</description>
+                <lsb>0</lsb>
+                <msb>0</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>4</dimIncrement>
+                <name>positive_idle[%s]</name>
+                <description>Idle state of positive signal</description>
+                <lsb>1</lsb>
+                <msb>1</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>4</dimIncrement>
+                <name>negative_signal[%s]</name>
+                <description>Enable or disable negative signal for channel</description>
+                <lsb>2</lsb>
+                <msb>2</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>4</dimIncrement>
+                <name>negative_idle[%s]</name>
+                <description>Idle state of negative signal</description>
+                <lsb>3</lsb>
+                <msb>3</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>positive_polarity[%s]</name>
+                <description>Polarity of positive signal</description>
+                <lsb>16</lsb>
+                <msb>16</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>negative_polarity[%s]</name>
+                <description>Polarity of negative signal</description>
+                <lsb>17</lsb>
+                <msb>17</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>positive_break[%s]</name>
+                <description>Break state on positive signal of this channel</description>
+                <lsb>24</lsb>
+                <msb>24</msb>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>negative_break[%s]</name>
+                <description>Break state on negative signal of this channel</description>
+                <lsb>25</lsb>
+                <msb>25</msb>
+              </field>
             </fields>
           </register>
           <register>
@@ -1697,17 +1835,35 @@ DMA request will not be asserted if `transmit_available` is less than this value
             <description>Dead time for each channel</description>
             <addressOffset>0x0C</addressOffset>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>8</dimIncrement>
+                <name>channel[%s]</name>
+                <description>Dead time for each channel in cycles</description>
+                <lsb>0</lsb>
+                <msb>7</msb>
+              </field>
             </fields>
           </register>
           <register>
             <dim>4</dim>
             <dimIncrement>0x04</dimIncrement>
-            <name>channel_threshold[%s]</name>
-            <description>Threshold register for each channel</description>
+            <name>threshold[%s]</name>
+            <description>Channel internal counter threshold</description>
             <addressOffset>0x10</addressOffset>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <name>high</name>
+                <description>Highest value for internal counter that sets positive signal to 1 and negative to 0</description>
+                <lsb>16</lsb>
+                <msb>31</msb>
+              </field>
+              <field>
+                <name>low</name>
+                <description>Lowest value for internal counter that sets positive signal to 1 and negative to 0</description>
+                <lsb>0</lsb>
+                <msb>15</msb>
+              </field>
             </fields>
           </register>
           <register>

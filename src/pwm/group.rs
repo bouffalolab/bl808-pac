@@ -1,16 +1,16 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct GROUP {
-    #[doc = "0x00 - Configuration register 0"]
-    pub config_0: CONFIG_0,
-    #[doc = "0x04 - Configuration register 1"]
-    pub config_1: CONFIG_1,
+    #[doc = "0x00 - Peripheral group configuration"]
+    pub config: CONFIG,
+    #[doc = "0x04 - Channel configuration register"]
+    pub channel: CHANNEL,
     #[doc = "0x08 - Pulse clock period register"]
     pub period: PERIOD,
     #[doc = "0x0c - Dead time for each channel"]
     pub dead_time: DEAD_TIME,
-    #[doc = "0x10..0x20 - Threshold register for each channel"]
-    pub channel_threshold: [CHANNEL_THRESHOLD; 4],
+    #[doc = "0x10..0x20 - Channel internal counter threshold"]
+    pub threshold: [THRESHOLD; 4],
     #[doc = "0x20 - Interrupt state register"]
     pub interrupt_state: INTERRUPT_STATE,
     #[doc = "0x24 - Interrupt mask register"]
@@ -20,14 +20,14 @@ pub struct GROUP {
     #[doc = "0x2c - Interrupt enable register"]
     pub interrupt_enable: INTERRUPT_ENABLE,
 }
-#[doc = "config_0 (rw) register accessor: an alias for `Reg<CONFIG_0_SPEC>`"]
-pub type CONFIG_0 = crate::Reg<config_0::CONFIG_0_SPEC>;
-#[doc = "Configuration register 0"]
-pub mod config_0;
-#[doc = "config_1 (rw) register accessor: an alias for `Reg<CONFIG_1_SPEC>`"]
-pub type CONFIG_1 = crate::Reg<config_1::CONFIG_1_SPEC>;
-#[doc = "Configuration register 1"]
-pub mod config_1;
+#[doc = "config (rw) register accessor: an alias for `Reg<CONFIG_SPEC>`"]
+pub type CONFIG = crate::Reg<config::CONFIG_SPEC>;
+#[doc = "Peripheral group configuration"]
+pub mod config;
+#[doc = "channel (rw) register accessor: an alias for `Reg<CHANNEL_SPEC>`"]
+pub type CHANNEL = crate::Reg<channel::CHANNEL_SPEC>;
+#[doc = "Channel configuration register"]
+pub mod channel;
 #[doc = "period (rw) register accessor: an alias for `Reg<PERIOD_SPEC>`"]
 pub type PERIOD = crate::Reg<period::PERIOD_SPEC>;
 #[doc = "Pulse clock period register"]
@@ -36,10 +36,10 @@ pub mod period;
 pub type DEAD_TIME = crate::Reg<dead_time::DEAD_TIME_SPEC>;
 #[doc = "Dead time for each channel"]
 pub mod dead_time;
-#[doc = "channel_threshold (rw) register accessor: an alias for `Reg<CHANNEL_THRESHOLD_SPEC>`"]
-pub type CHANNEL_THRESHOLD = crate::Reg<channel_threshold::CHANNEL_THRESHOLD_SPEC>;
-#[doc = "Threshold register for each channel"]
-pub mod channel_threshold;
+#[doc = "threshold (rw) register accessor: an alias for `Reg<THRESHOLD_SPEC>`"]
+pub type THRESHOLD = crate::Reg<threshold::THRESHOLD_SPEC>;
+#[doc = "Channel internal counter threshold"]
+pub mod threshold;
 #[doc = "interrupt_state (rw) register accessor: an alias for `Reg<INTERRUPT_STATE_SPEC>`"]
 pub type INTERRUPT_STATE = crate::Reg<interrupt_state::INTERRUPT_STATE_SPEC>;
 #[doc = "Interrupt state register"]
