@@ -34,7 +34,41 @@ impl From<crate::W<PERIOD_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `interrupt_cycles` reader - If internal counter reaches this cycle count, it interrupts"]
+pub type INTERRUPT_CYCLES_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `interrupt_cycles` writer - If internal counter reaches this cycle count, it interrupts"]
+pub type INTERRUPT_CYCLES_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, PERIOD_SPEC, u16, u16, 16, O>;
+#[doc = "Field `repeat_cycles` reader - How many clock cycles a Pulse-Width Modulation cycle includes"]
+pub type REPEAT_CYCLES_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `repeat_cycles` writer - How many clock cycles a Pulse-Width Modulation cycle includes"]
+pub type REPEAT_CYCLES_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, PERIOD_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - If internal counter reaches this cycle count, it interrupts"]
+    #[inline(always)]
+    pub fn interrupt_cycles(&self) -> INTERRUPT_CYCLES_R {
+        INTERRUPT_CYCLES_R::new((self.bits & 0xffff) as u16)
+    }
+    #[doc = "Bits 16:31 - How many clock cycles a Pulse-Width Modulation cycle includes"]
+    #[inline(always)]
+    pub fn repeat_cycles(&self) -> REPEAT_CYCLES_R {
+        REPEAT_CYCLES_R::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - If internal counter reaches this cycle count, it interrupts"]
+    #[inline(always)]
+    #[must_use]
+    pub fn interrupt_cycles(&mut self) -> INTERRUPT_CYCLES_W<0> {
+        INTERRUPT_CYCLES_W::new(self)
+    }
+    #[doc = "Bits 16:31 - How many clock cycles a Pulse-Width Modulation cycle includes"]
+    #[inline(always)]
+    #[must_use]
+    pub fn repeat_cycles(&mut self) -> REPEAT_CYCLES_W<16> {
+        REPEAT_CYCLES_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {

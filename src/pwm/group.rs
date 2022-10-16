@@ -40,7 +40,7 @@ pub mod dead_time;
 pub type THRESHOLD = crate::Reg<threshold::THRESHOLD_SPEC>;
 #[doc = "Channel internal counter threshold"]
 pub mod threshold;
-#[doc = "interrupt_state (rw) register accessor: an alias for `Reg<INTERRUPT_STATE_SPEC>`"]
+#[doc = "interrupt_state (r) register accessor: an alias for `Reg<INTERRUPT_STATE_SPEC>`"]
 pub type INTERRUPT_STATE = crate::Reg<interrupt_state::INTERRUPT_STATE_SPEC>;
 #[doc = "Interrupt state register"]
 pub mod interrupt_state;
@@ -48,7 +48,7 @@ pub mod interrupt_state;
 pub type INTERRUPT_MASK = crate::Reg<interrupt_mask::INTERRUPT_MASK_SPEC>;
 #[doc = "Interrupt mask register"]
 pub mod interrupt_mask;
-#[doc = "interrupt_clear (rw) register accessor: an alias for `Reg<INTERRUPT_CLEAR_SPEC>`"]
+#[doc = "interrupt_clear (w) register accessor: an alias for `Reg<INTERRUPT_CLEAR_SPEC>`"]
 pub type INTERRUPT_CLEAR = crate::Reg<interrupt_clear::INTERRUPT_CLEAR_SPEC>;
 #[doc = "Clear interrupt register"]
 pub mod interrupt_clear;

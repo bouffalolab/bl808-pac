@@ -13,36 +13,118 @@ impl From<crate::R<INTERRUPT_STATE_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `interrupt_state` writer"]
-pub struct W(crate::W<INTERRUPT_STATE_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<INTERRUPT_STATE_SPEC>;
+#[doc = "Field `threshold_low[0-3]` reader - Intenal counter for channel have exceeded low threshold"]
+pub type THRESHOLD_LOW_R = crate::BitReader<INTERRUPT_STATE_A>;
+#[doc = "Intenal counter for channel have exceeded low threshold\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum INTERRUPT_STATE_A {
+    #[doc = "1: Has interrupt"]
+    HAS_INTERRUPT = 1,
+    #[doc = "0: No interrupt occurred"]
+    NO_INTERRUPT = 0,
+}
+impl From<INTERRUPT_STATE_A> for bool {
     #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
+    fn from(variant: INTERRUPT_STATE_A) -> Self {
+        variant as u8 != 0
     }
 }
-impl core::ops::DerefMut for W {
+impl THRESHOLD_LOW_R {
+    #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
+    pub fn variant(&self) -> INTERRUPT_STATE_A {
+        match self.bits {
+            true => INTERRUPT_STATE_A::HAS_INTERRUPT,
+            false => INTERRUPT_STATE_A::NO_INTERRUPT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `HAS_INTERRUPT`"]
+    #[inline(always)]
+    pub fn is_has_interrupt(&self) -> bool {
+        *self == INTERRUPT_STATE_A::HAS_INTERRUPT
+    }
+    #[doc = "Checks if the value of the field is `NO_INTERRUPT`"]
+    #[inline(always)]
+    pub fn is_no_interrupt(&self) -> bool {
+        *self == INTERRUPT_STATE_A::NO_INTERRUPT
     }
 }
-impl From<crate::W<INTERRUPT_STATE_SPEC>> for W {
+#[doc = "Field `threshold_high[0-3]` reader - Intenal counter for channel have exceeded high threshold"]
+pub use THRESHOLD_LOW_R as THRESHOLD_HIGH_R;
+#[doc = "Field `interrupt_period` reader - Intenal counter for channel have exceeded interrupt cycle threshold"]
+pub use THRESHOLD_LOW_R as INTERRUPT_PERIOD_R;
+#[doc = "Field `external_break` reader - External break signal occurred"]
+pub use THRESHOLD_LOW_R as EXTERNAL_BREAK_R;
+#[doc = "Field `repeat` reader - Peripheral group have completed one repeat cycle"]
+pub use THRESHOLD_LOW_R as REPEAT_R;
+impl R {
+    #[doc = "Intenal counter for channel have exceeded low threshold"]
     #[inline(always)]
-    fn from(writer: crate::W<INTERRUPT_STATE_SPEC>) -> Self {
-        W(writer)
+    pub unsafe fn threshold_low(&self, n: u8) -> THRESHOLD_LOW_R {
+        THRESHOLD_LOW_R::new(((self.bits >> (n * 2)) & 1) != 0)
+    }
+    #[doc = "Bit 0 - Intenal counter for channel have exceeded low threshold"]
+    #[inline(always)]
+    pub fn threshold_low0(&self) -> THRESHOLD_LOW_R {
+        THRESHOLD_LOW_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 2 - Intenal counter for channel have exceeded low threshold"]
+    #[inline(always)]
+    pub fn threshold_low1(&self) -> THRESHOLD_LOW_R {
+        THRESHOLD_LOW_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 4 - Intenal counter for channel have exceeded low threshold"]
+    #[inline(always)]
+    pub fn threshold_low2(&self) -> THRESHOLD_LOW_R {
+        THRESHOLD_LOW_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    #[doc = "Bit 6 - Intenal counter for channel have exceeded low threshold"]
+    #[inline(always)]
+    pub fn threshold_low3(&self) -> THRESHOLD_LOW_R {
+        THRESHOLD_LOW_R::new(((self.bits >> 6) & 1) != 0)
+    }
+    #[doc = "Intenal counter for channel have exceeded high threshold"]
+    #[inline(always)]
+    pub unsafe fn threshold_high(&self, n: u8) -> THRESHOLD_HIGH_R {
+        THRESHOLD_HIGH_R::new(((self.bits >> (n * 2 + 1)) & 1) != 0)
+    }
+    #[doc = "Bit 1 - Intenal counter for channel have exceeded high threshold"]
+    #[inline(always)]
+    pub fn threshold_high0(&self) -> THRESHOLD_HIGH_R {
+        THRESHOLD_HIGH_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Intenal counter for channel have exceeded high threshold"]
+    #[inline(always)]
+    pub fn threshold_high1(&self) -> THRESHOLD_HIGH_R {
+        THRESHOLD_HIGH_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bit 5 - Intenal counter for channel have exceeded high threshold"]
+    #[inline(always)]
+    pub fn threshold_high2(&self) -> THRESHOLD_HIGH_R {
+        THRESHOLD_HIGH_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    #[doc = "Bit 7 - Intenal counter for channel have exceeded high threshold"]
+    #[inline(always)]
+    pub fn threshold_high3(&self) -> THRESHOLD_HIGH_R {
+        THRESHOLD_HIGH_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bit 8 - Intenal counter for channel have exceeded interrupt cycle threshold"]
+    #[inline(always)]
+    pub fn interrupt_period(&self) -> INTERRUPT_PERIOD_R {
+        INTERRUPT_PERIOD_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    #[doc = "Bit 9 - External break signal occurred"]
+    #[inline(always)]
+    pub fn external_break(&self) -> EXTERNAL_BREAK_R {
+        EXTERNAL_BREAK_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 10 - Peripheral group have completed one repeat cycle"]
+    #[inline(always)]
+    pub fn repeat(&self) -> REPEAT_R {
+        REPEAT_R::new(((self.bits >> 10) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
-    }
-}
-#[doc = "Interrupt state register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrupt_state](index.html) module"]
+#[doc = "Interrupt state register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrupt_state](index.html) module"]
 pub struct INTERRUPT_STATE_SPEC;
 impl crate::RegisterSpec for INTERRUPT_STATE_SPEC {
     type Ux = u32;
@@ -50,10 +132,6 @@ impl crate::RegisterSpec for INTERRUPT_STATE_SPEC {
 #[doc = "`read()` method returns [interrupt_state::R](R) reader structure"]
 impl crate::Readable for INTERRUPT_STATE_SPEC {
     type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [interrupt_state::W](W) writer structure"]
-impl crate::Writable for INTERRUPT_STATE_SPEC {
-    type Writer = W;
 }
 #[doc = "`reset()` method sets interrupt_state to value 0"]
 impl crate::Resettable for INTERRUPT_STATE_SPEC {

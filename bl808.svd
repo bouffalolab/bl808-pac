@@ -1738,14 +1738,14 @@ DMA request will not be asserted if `transmit_available` is less than this value
               </field> 
               <field>
                 <name>adc_trigger_source</name>
-                <description>Select channel in Analog-digital Converter to interace with this peripheral\n\n
+                <description>Select channel in Analog-to-Digital Converter to interact with this peripheral\n\n
 **This field only works with PWM0.** PWM1 does not have this feature.</description>
                 <lsb>20</lsb>
                 <msb>23</msb>
               </field>
               <field>
                 <name>stop_on_repeat</name>
-                <description>??</description>
+                <description>Enable or disable stop on one repeat cycle completed</description>
                 <lsb>19</lsb>
                 <msb>19</msb>
               </field>
@@ -1827,7 +1827,18 @@ DMA request will not be asserted if `transmit_available` is less than this value
             <description>Pulse clock period register</description>
             <addressOffset>0x08</addressOffset>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <name>interrupt_cycles</name>
+                <description>If internal counter reaches this cycle count, it interrupts</description>
+                <lsb>0</lsb>
+                <msb>15</msb>
+              </field>
+              <field>
+                <name>repeat_cycles</name>
+                <description>How many clock cycles a Pulse-Width Modulation cycle includes</description>
+                <lsb>16</lsb>
+                <msb>31</msb>
+              </field>
             </fields>
           </register>
           <register>
@@ -1870,32 +1881,249 @@ DMA request will not be asserted if `transmit_available` is less than this value
             <name>interrupt_state</name>
             <description>Interrupt state register</description>
             <addressOffset>0x20</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <resetMask>0xffffffff</resetMask>
+            <access>read-only</access>
+            <writeConstraint>
+              <useEnumeratedValues>true</useEnumeratedValues>
+            </writeConstraint>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_low[%s]</name>
+                <description>Intenal counter for channel have exceeded low threshold</description>
+                <lsb>0</lsb>
+                <msb>0</msb>
+                <enumeratedValues>
+                  <name>InterruptState</name>
+                  <enumeratedValue>
+                    <name>has_interrupt</name>
+                    <description>Has interrupt</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>no_interrupt</name>
+                    <description>No interrupt occurred</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_high[%s]</name>
+                <description>Intenal counter for channel have exceeded high threshold</description>
+                <lsb>1</lsb>
+                <msb>1</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptState" />
+              </field>
+              <field>
+                <name>interrupt_period</name>
+                <description>Intenal counter for channel have exceeded interrupt cycle threshold</description>
+                <lsb>8</lsb>
+                <msb>8</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptState" />
+              </field>
+              <field>
+                <name>external_break</name>
+                <description>External break signal occurred</description>
+                <lsb>9</lsb>
+                <msb>9</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptState" />
+              </field>
+              <field>
+                <name>repeat</name>
+                <description>Peripheral group have completed one repeat cycle</description>
+                <lsb>10</lsb>
+                <msb>10</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptState" />
+              </field>
             </fields>
           </register>
           <register>
             <name>interrupt_mask</name>
             <description>Interrupt mask register</description>
             <addressOffset>0x24</addressOffset>
+            <resetValue>0x0000007f</resetValue>
+            <resetMask>0xffffffff</resetMask>
+            <writeConstraint>
+              <useEnumeratedValues>true</useEnumeratedValues>
+            </writeConstraint>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_low[%s]</name>
+                <description>Intenal counter for channel have exceeded low threshold</description>
+                <lsb>0</lsb>
+                <msb>0</msb>
+                <enumeratedValues>
+                  <name>InterruptMask</name>
+                  <enumeratedValue>
+                    <name>mask</name>
+                    <description>Mask interrupt</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>unmask</name>
+                    <description>Unmask interrupt</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_high[%s]</name>
+                <description>Intenal counter for channel have exceeded high threshold</description>
+                <lsb>1</lsb>
+                <msb>1</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptMask" />
+              </field>
+              <field>
+                <name>interrupt_period</name>
+                <description>Intenal counter for channel have exceeded interrupt cycle threshold</description>
+                <lsb>8</lsb>
+                <msb>8</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptMask" />
+              </field>
+              <field>
+                <name>external_break</name>
+                <description>External break signal occurred</description>
+                <lsb>9</lsb>
+                <msb>9</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptMask" />
+              </field>
+              <field>
+                <name>repeat</name>
+                <description>Peripheral group have completed one repeat cycle</description>
+                <lsb>10</lsb>
+                <msb>10</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptMask" />
+              </field>
             </fields>
           </register>
           <register>
             <name>interrupt_clear</name>
             <description>Clear interrupt register</description>
             <addressOffset>0x28</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <resetMask>0xffffffff</resetMask>
+            <access>write-only</access>
+            <writeConstraint>
+              <useEnumeratedValues>true</useEnumeratedValues>
+            </writeConstraint>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_low[%s]</name>
+                <description>Intenal counter for channel have exceeded low threshold</description>
+                <lsb>0</lsb>
+                <msb>0</msb>
+                <enumeratedValues>
+                  <name>InterruptClear</name>
+                  <enumeratedValue>
+                    <name>clear</name>
+                    <description>Write 1 to clear interrupt state</description>
+                    <value>0x1</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_high[%s]</name>
+                <description>Intenal counter for channel have exceeded high threshold</description>
+                <lsb>1</lsb>
+                <msb>1</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptClear" />
+              </field>
+              <field>
+                <name>interrupt_period</name>
+                <description>Intenal counter for channel have exceeded interrupt cycle threshold</description>
+                <lsb>8</lsb>
+                <msb>8</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptClear" />
+              </field>
+              <field>
+                <name>external_break</name>
+                <description>External break signal occurred</description>
+                <lsb>9</lsb>
+                <msb>9</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptClear" />
+              </field>
+              <field>
+                <name>repeat</name>
+                <description>Peripheral group have completed one repeat cycle</description>
+                <lsb>10</lsb>
+                <msb>10</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptClear" />
+              </field>
             </fields>
           </register>
           <register>
             <name>interrupt_enable</name>
             <description>Interrupt enable register</description>
             <addressOffset>0x2C</addressOffset>
+            <resetValue>0x0000007f</resetValue>
+            <resetMask>0xffffffff</resetMask>
+            <writeConstraint>
+              <useEnumeratedValues>true</useEnumeratedValues>
+            </writeConstraint>
             <fields>
-              <!-- todo: fields -->
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_low[%s]</name>
+                <description>Intenal counter for channel have exceeded low threshold</description>
+                <lsb>0</lsb>
+                <msb>0</msb>
+                <enumeratedValues>
+                  <name>InterruptEnable</name>
+                  <enumeratedValue>
+                    <name>enable</name>
+                    <description>Enable interrupt</description>
+                    <value>1</value>
+                  </enumeratedValue>
+                  <enumeratedValue>
+                    <name>disable</name>
+                    <description>Disable interrupt</description>
+                    <value>0</value>
+                  </enumeratedValue>
+                </enumeratedValues>
+              </field>
+              <field>
+                <dim>4</dim>
+                <dimIncrement>2</dimIncrement>
+                <name>threshold_high[%s]</name>
+                <description>Intenal counter for channel have exceeded high threshold</description>
+                <lsb>1</lsb>
+                <msb>1</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptEnable" />
+              </field>
+              <field>
+                <name>interrupt_period</name>
+                <description>Intenal counter for channel have exceeded interrupt cycle threshold</description>
+                <lsb>8</lsb>
+                <msb>8</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptEnable" />
+              </field>
+              <field>
+                <name>external_break</name>
+                <description>External break signal occurred</description>
+                <lsb>9</lsb>
+                <msb>9</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptEnable" />
+              </field>
+              <field>
+                <name>repeat</name>
+                <description>Peripheral group have completed one repeat cycle</description>
+                <lsb>10</lsb>
+                <msb>10</msb>
+                <enumeratedValues derivedFrom="threshold_low[%s].InterruptEnable" />
+              </field>
             </fields>
           </register>
         </cluster>

@@ -34,13 +34,13 @@ impl From<crate::W<CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `stop_on_repeat` reader - ??"]
+#[doc = "Field `stop_on_repeat` reader - Enable or disable stop on one repeat cycle completed"]
 pub type STOP_ON_REPEAT_R = crate::BitReader<bool>;
-#[doc = "Field `stop_on_repeat` writer - ??"]
+#[doc = "Field `stop_on_repeat` writer - Enable or disable stop on one repeat cycle completed"]
 pub type STOP_ON_REPEAT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CONFIG_SPEC, bool, O>;
-#[doc = "Field `adc_trigger_source` reader - Select channel in Analog-digital Converter to interace with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
+#[doc = "Field `adc_trigger_source` reader - Select channel in Analog-to-Digital Converter to interact with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
 pub type ADC_TRIGGER_SOURCE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `adc_trigger_source` writer - Select channel in Analog-digital Converter to interace with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
+#[doc = "Field `adc_trigger_source` writer - Select channel in Analog-to-Digital Converter to interact with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
 pub type ADC_TRIGGER_SOURCE_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, CONFIG_SPEC, u8, u8, 4, O>;
 #[doc = "Field `software_break` reader - Enable software signal break"]
@@ -134,12 +134,12 @@ impl<'a, const O: u8> CLOCK_SELECT_W<'a, O> {
     }
 }
 impl R {
-    #[doc = "Bit 19 - ??"]
+    #[doc = "Bit 19 - Enable or disable stop on one repeat cycle completed"]
     #[inline(always)]
     pub fn stop_on_repeat(&self) -> STOP_ON_REPEAT_R {
         STOP_ON_REPEAT_R::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bits 20:23 - Select channel in Analog-digital Converter to interace with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
+    #[doc = "Bits 20:23 - Select channel in Analog-to-Digital Converter to interact with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
     #[inline(always)]
     pub fn adc_trigger_source(&self) -> ADC_TRIGGER_SOURCE_R {
         ADC_TRIGGER_SOURCE_R::new(((self.bits >> 20) & 0x0f) as u8)
@@ -181,13 +181,13 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 19 - ??"]
+    #[doc = "Bit 19 - Enable or disable stop on one repeat cycle completed"]
     #[inline(always)]
     #[must_use]
     pub fn stop_on_repeat(&mut self) -> STOP_ON_REPEAT_W<19> {
         STOP_ON_REPEAT_W::new(self)
     }
-    #[doc = "Bits 20:23 - Select channel in Analog-digital Converter to interace with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
+    #[doc = "Bits 20:23 - Select channel in Analog-to-Digital Converter to interact with this peripheral\n\n **This field only works with PWM0.** PWM1 does not have this feature."]
     #[inline(always)]
     #[must_use]
     pub fn adc_trigger_source(&mut self) -> ADC_TRIGGER_SOURCE_W<20> {
