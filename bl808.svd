@@ -1655,79 +1655,94 @@ DMA request will not be asserted if `transmit_available` is less than this value
       </addressBlock>
       <registers>
         <register>
-          <name>config_0</name>
-          <description>Configuration register 0</description>
+          <name>interrupt_config</name>
+          <description>Interrupt state and clear register</description>
           <addressOffset>0x00</addressOffset>
           <fields>
             <!-- todo: fields -->
           </fields>
         </register>
-        <register>
-          <name>config_1</name> <!-- todo: more proper name -->
-          <description>Configuration register 1</description>
-          <addressOffset>0x04</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>period</name>
-          <description>Cycle duration in clock source cycles</description>
-          <addressOffset>0x08</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>dead_time</name>
-          <description>??</description>
-          <addressOffset>0x0C</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <dim>4</dim>
-          <dimIncrement>0x04</dimIncrement>
-          <name>channel_threshold[%s]</name>
-          <description>??</description>
-          <addressOffset>0x10</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>interrupt_state</name>
-          <description>Interrut state register</description>
-          <addressOffset>0x20</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>interrupt_mask</name>
-          <description>Interrut mask register</description>
-          <addressOffset>0x24</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>interrupt_clear</name>
-          <description>Clear interrupt register</description>
-          <addressOffset>0x28</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
-        <register>
-          <name>interrupt_enable</name>
-          <description>Interrupt enable register</description>
-          <addressOffset>0x2C</addressOffset>
-          <fields>
-            <!-- todo: fields -->
-          </fields>
-        </register>
+        <cluster>
+          <dim>2</dim>
+          <dimIncrement>0x40</dimIncrement>
+          <name>group[%s]</name>
+          <description>Pulse-Width Modulation channel group</description>
+          <addressOffset>0x40</addressOffset>
+          <register>
+            <name>config_0</name>
+            <description>Configuration register 0</description>
+            <addressOffset>0x00</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>config_1</name>
+            <description>Configuration register 1</description>
+            <addressOffset>0x04</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>period</name>
+            <description>Pulse clock period register</description>
+            <addressOffset>0x08</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>dead_time</name>
+            <description>Dead time for each channel</description>
+            <addressOffset>0x0C</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <dim>4</dim>
+            <dimIncrement>0x04</dimIncrement>
+            <name>channel_threshold[%s]</name>
+            <description>Threshold register for each channel</description>
+            <addressOffset>0x10</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>interrupt_state</name>
+            <description>Interrupt state register</description>
+            <addressOffset>0x20</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>interrupt_mask</name>
+            <description>Interrupt mask register</description>
+            <addressOffset>0x24</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>interrupt_clear</name>
+            <description>Clear interrupt register</description>
+            <addressOffset>0x28</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+          <register>
+            <name>interrupt_enable</name>
+            <description>Interrupt enable register</description>
+            <addressOffset>0x2C</addressOffset>
+            <fields>
+              <!-- todo: fields -->
+            </fields>
+          </register>
+        </cluster>
       </registers>
     </peripheral>
     <peripheral>
