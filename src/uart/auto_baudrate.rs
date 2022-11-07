@@ -40,8 +40,5 @@ impl crate::Readable for AUTO_BAUDRATE_SPEC {
 }
 #[doc = "`reset()` method sets auto_baudrate to value 0"]
 impl crate::Resettable for AUTO_BAUDRATE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

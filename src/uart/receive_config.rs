@@ -674,11 +674,10 @@ impl crate::Readable for RECEIVE_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [receive_config::W](W) writer structure"]
 impl crate::Writable for RECEIVE_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets receive_config to value 0x0700"]
 impl crate::Resettable for RECEIVE_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0700
-    }
+    const RESET_VALUE: Self::Ux = 0x0700;
 }

@@ -133,11 +133,10 @@ impl crate::Readable for INTERRUPT_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [interrupt_enable::W](W) writer structure"]
 impl crate::Writable for INTERRUPT_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets interrupt_enable to value 0x03"]
 impl crate::Resettable for INTERRUPT_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x03
-    }
+    const RESET_VALUE: Self::Ux = 0x03;
 }

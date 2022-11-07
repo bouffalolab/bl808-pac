@@ -54,11 +54,10 @@ impl crate::Readable for BLUETOOTH_TRANSMIT_SPEC {
 #[doc = "`write(|w| ..)` method takes [bluetooth_transmit::W](W) writer structure"]
 impl crate::Writable for BLUETOOTH_TRANSMIT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets bluetooth_transmit to value 0"]
 impl crate::Resettable for BLUETOOTH_TRANSMIT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

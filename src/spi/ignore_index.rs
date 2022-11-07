@@ -54,11 +54,10 @@ impl crate::Readable for IGNORE_INDEX_SPEC {
 #[doc = "`write(|w| ..)` method takes [ignore_index::W](W) writer structure"]
 impl crate::Writable for IGNORE_INDEX_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ignore_index to value 0"]
 impl crate::Resettable for IGNORE_INDEX_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

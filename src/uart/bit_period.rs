@@ -87,11 +87,10 @@ impl crate::Readable for BIT_PERIOD_SPEC {
 #[doc = "`write(|w| ..)` method takes [bit_period::W](W) writer structure"]
 impl crate::Writable for BIT_PERIOD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets bit_period to value 0x00ff_00ff"]
 impl crate::Resettable for BIT_PERIOD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x00ff_00ff
-    }
+    const RESET_VALUE: Self::Ux = 0x00ff_00ff;
 }

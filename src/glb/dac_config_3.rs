@@ -54,11 +54,10 @@ impl crate::Readable for DAC_CONFIG_3_SPEC {
 #[doc = "`write(|w| ..)` method takes [dac_config_3::W](W) writer structure"]
 impl crate::Writable for DAC_CONFIG_3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dac_config_3 to value 0"]
 impl crate::Resettable for DAC_CONFIG_3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

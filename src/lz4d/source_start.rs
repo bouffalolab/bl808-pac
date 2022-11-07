@@ -46,7 +46,7 @@ impl R {
     #[doc = "Bits 0:25 - Start address"]
     #[inline(always)]
     pub fn start(&self) -> START_R {
-        START_R::new((self.bits & 0x03ff_ffff) as u32)
+        START_R::new(self.bits & 0x03ff_ffff)
     }
     #[doc = "Bits 26:31 - Address base"]
     #[inline(always)]
@@ -86,11 +86,10 @@ impl crate::Readable for SOURCE_START_SPEC {
 #[doc = "`write(|w| ..)` method takes [source_start::W](W) writer structure"]
 impl crate::Writable for SOURCE_START_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets source_start to value 0"]
 impl crate::Resettable for SOURCE_START_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

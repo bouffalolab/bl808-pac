@@ -119,11 +119,10 @@ impl crate::RegisterSpec for INTERRUPT_CLEAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [interrupt_clear::W](W) writer structure"]
 impl crate::Writable for INTERRUPT_CLEAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets interrupt_clear to value 0"]
 impl crate::Resettable for INTERRUPT_CLEAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

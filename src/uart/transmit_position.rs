@@ -88,11 +88,10 @@ impl crate::Readable for TRANSMIT_POSITION_SPEC {
 #[doc = "`write(|w| ..)` method takes [transmit_position::W](W) writer structure"]
 impl crate::Writable for TRANSMIT_POSITION_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets transmit_position to value 0x009f_0070"]
 impl crate::Resettable for TRANSMIT_POSITION_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x009f_0070
-    }
+    const RESET_VALUE: Self::Ux = 0x009f_0070;
 }

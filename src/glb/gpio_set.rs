@@ -54,12 +54,11 @@ impl crate::Readable for GPIO_SET_SPEC {
 #[doc = "`write(|w| ..)` method takes [gpio_set::W](W) writer structure"]
 impl crate::Writable for GPIO_SET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets gpio_set[%s]
 to value 0"]
 impl crate::Resettable for GPIO_SET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

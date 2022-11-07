@@ -450,11 +450,10 @@ impl crate::Readable for INTERRUPT_SPEC {
 #[doc = "`write(|w| ..)` method takes [interrupt::W](W) writer structure"]
 impl crate::Writable for INTERRUPT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets interrupt to value 0x3f00_3f00"]
 impl crate::Resettable for INTERRUPT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x3f00_3f00
-    }
+    const RESET_VALUE: Self::Ux = 0x3f00_3f00;
 }

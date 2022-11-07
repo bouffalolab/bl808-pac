@@ -54,11 +54,10 @@ impl crate::Readable for NON_BACKED_GAP_2_SPEC {
 #[doc = "`write(|w| ..)` method takes [non_backed_gap_2::W](W) writer structure"]
 impl crate::Writable for NON_BACKED_GAP_2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets non_backed_gap_2 to value 0"]
 impl crate::Resettable for NON_BACKED_GAP_2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

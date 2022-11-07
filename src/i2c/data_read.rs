@@ -33,8 +33,5 @@ impl crate::Readable for DATA_READ_SPEC {
 }
 #[doc = "`reset()` method sets data_read to value 0"]
 impl crate::Resettable for DATA_READ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

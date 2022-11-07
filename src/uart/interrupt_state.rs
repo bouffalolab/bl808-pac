@@ -144,8 +144,5 @@ impl crate::Readable for INTERRUPT_STATE_SPEC {
 }
 #[doc = "`reset()` method sets interrupt_state to value 0x04"]
 impl crate::Resettable for INTERRUPT_STATE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x04
-    }
+    const RESET_VALUE: Self::Ux = 0x04;
 }

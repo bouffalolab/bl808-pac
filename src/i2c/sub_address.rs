@@ -115,11 +115,10 @@ impl crate::Readable for SUB_ADDRESS_SPEC {
 #[doc = "`write(|w| ..)` method takes [sub_address::W](W) writer structure"]
 impl crate::Writable for SUB_ADDRESS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets sub_address to value 0"]
 impl crate::Resettable for SUB_ADDRESS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -54,11 +54,10 @@ impl crate::Readable for MII_COMMAND_SPEC {
 #[doc = "`write(|w| ..)` method takes [mii_command::W](W) writer structure"]
 impl crate::Writable for MII_COMMAND_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets mii_command to value 0"]
 impl crate::Resettable for MII_COMMAND_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

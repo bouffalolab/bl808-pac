@@ -72,11 +72,10 @@ impl crate::Readable for RECEIVE_POSITION_SPEC {
 #[doc = "`write(|w| ..)` method takes [receive_position::W](W) writer structure"]
 impl crate::Writable for RECEIVE_POSITION_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets receive_position to value 0x6f"]
 impl crate::Resettable for RECEIVE_POSITION_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x6f
-    }
+    const RESET_VALUE: Self::Ux = 0x6f;
 }

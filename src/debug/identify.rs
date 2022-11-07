@@ -34,8 +34,5 @@ impl crate::Readable for IDENTIFY_SPEC {
 #[doc = "`reset()` method sets identify[%s]
 to value 0"]
 impl crate::Resettable for IDENTIFY_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

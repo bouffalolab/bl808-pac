@@ -54,12 +54,11 @@ impl crate::Readable for MAC_ADDRESS_SPEC {
 #[doc = "`write(|w| ..)` method takes [mac_address::W](W) writer structure"]
 impl crate::Writable for MAC_ADDRESS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets mac_address[%s]
 to value 0"]
 impl crate::Resettable for MAC_ADDRESS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

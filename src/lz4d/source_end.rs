@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:25 - End of address"]
     #[inline(always)]
     pub fn end(&self) -> END_R {
-        END_R::new((self.bits & 0x03ff_ffff) as u32)
+        END_R::new(self.bits & 0x03ff_ffff)
     }
 }
 #[doc = "Reads the end address of source after decompression\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [source_end](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for SOURCE_END_SPEC {
 }
 #[doc = "`reset()` method sets source_end to value 0"]
 impl crate::Resettable for SOURCE_END_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

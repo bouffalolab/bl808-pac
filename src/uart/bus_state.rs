@@ -74,8 +74,5 @@ impl crate::Readable for BUS_STATE_SPEC {
 }
 #[doc = "`reset()` method sets bus_state to value 0"]
 impl crate::Resettable for BUS_STATE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

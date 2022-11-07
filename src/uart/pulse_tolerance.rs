@@ -72,11 +72,10 @@ impl crate::Readable for PULSE_TOLERANCE_SPEC {
 #[doc = "`write(|w| ..)` method takes [pulse_tolerance::W](W) writer structure"]
 impl crate::Writable for PULSE_TOLERANCE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pulse_tolerance to value 0x03"]
 impl crate::Resettable for PULSE_TOLERANCE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x03
-    }
+    const RESET_VALUE: Self::Ux = 0x03;
 }

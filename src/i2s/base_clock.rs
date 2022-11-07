@@ -88,11 +88,10 @@ impl crate::Readable for BASE_CLOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [base_clock::W](W) writer structure"]
 impl crate::Writable for BASE_CLOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets base_clock to value 0x0001_0001"]
 impl crate::Resettable for BASE_CLOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0001_0001
-    }
+    const RESET_VALUE: Self::Ux = 0x0001_0001;
 }

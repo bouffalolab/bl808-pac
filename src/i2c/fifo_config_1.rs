@@ -102,11 +102,10 @@ impl crate::Readable for FIFO_CONFIG_1_SPEC {
 #[doc = "`write(|w| ..)` method takes [fifo_config_1::W](W) writer structure"]
 impl crate::Writable for FIFO_CONFIG_1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets fifo_config_1 to value 0x02"]
 impl crate::Resettable for FIFO_CONFIG_1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x02
-    }
+    const RESET_VALUE: Self::Ux = 0x02;
 }

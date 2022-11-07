@@ -54,11 +54,10 @@ impl crate::Readable for QUAD_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [quad_config::W](W) writer structure"]
 impl crate::Writable for QUAD_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets quad_config to value 0"]
 impl crate::Resettable for QUAD_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

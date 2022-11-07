@@ -54,11 +54,10 @@ impl crate::Readable for COEX_CONTROL_0_SPEC {
 #[doc = "`write(|w| ..)` method takes [coex_control_0::W](W) writer structure"]
 impl crate::Writable for COEX_CONTROL_0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets coex_control_0 to value 0"]
 impl crate::Resettable for COEX_CONTROL_0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }
