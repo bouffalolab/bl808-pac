@@ -321,7 +321,7 @@ See the Mulan PSL v2 for more details.
         </register>
         <!-- todo: registers -->
       </registers>
-    </peripheral>>
+    </peripheral>
     <peripheral>
       <name>EMAC</name>
       <description>Ethernet Media Access Control</description>
