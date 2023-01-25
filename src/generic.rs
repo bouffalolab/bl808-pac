@@ -44,7 +44,7 @@ pub trait RegisterSpec {
 }
 #[doc = " Trait implemented by readable registers to enable the `read` method."]
 #[doc = ""]
-#[doc = " Registers marked with `Writable` can be also `modify`'ed."]
+#[doc = " Registers marked with `Writable` can be also be `modify`'ed."]
 pub trait Readable: RegisterSpec {
     #[doc = " Result from a call to `read` and argument to `modify`."]
     type Reader: From<R<Self>> + core::ops::Deref<Target = R<Self>>;
@@ -53,7 +53,7 @@ pub trait Readable: RegisterSpec {
 #[doc = ""]
 #[doc = " This enables the  `write`, `write_with_zero` and `reset` methods."]
 #[doc = ""]
-#[doc = " Registers marked with `Readable` can be also `modify`'ed."]
+#[doc = " Registers marked with `Readable` can be also be `modify`'ed."]
 pub trait Writable: RegisterSpec {
     #[doc = " Writer type argument to `write`, et al."]
     type Writer: From<W<Self>> + core::ops::DerefMut<Target = W<Self>>;
@@ -630,6 +630,67 @@ where
     pub fn toggle_bit(self) -> &'a mut REG::Writer {
         self.w.bits &= !(U::one() << OF);
         self.w
+    }
+}
+mod atomic;
+use atomic::AtomicOperations;
+impl<REG: Readable + Writable> Reg<REG>
+where
+    REG::Ux: AtomicOperations + Default + core::ops::Not<Output = REG::Ux>,
+{
+    #[doc = " Set high every bit in the register that was set in the write proxy. Leave other bits"]
+    #[doc = " untouched. The write is done in a single atomic instruction."]
+    #[doc = ""]
+    #[doc = " # Safety"]
+    #[doc = ""]
+    #[doc = " The resultant bit pattern may not be valid for the register."]
+    #[inline(always)]
+    pub unsafe fn set_bits<F>(&self, f: F)
+    where
+        F: FnOnce(&mut REG::Writer) -> &mut W<REG>,
+    {
+        let bits = f(&mut REG::Writer::from(W {
+            bits: Default::default(),
+            _reg: marker::PhantomData,
+        }))
+        .bits;
+        REG::Ux::atomic_or(self.register.as_ptr(), bits);
+    }
+    #[doc = " Clear every bit in the register that was cleared in the write proxy. Leave other bits"]
+    #[doc = " untouched. The write is done in a single atomic instruction."]
+    #[doc = ""]
+    #[doc = " # Safety"]
+    #[doc = ""]
+    #[doc = " The resultant bit pattern may not be valid for the register."]
+    #[inline(always)]
+    pub unsafe fn clear_bits<F>(&self, f: F)
+    where
+        F: FnOnce(&mut REG::Writer) -> &mut W<REG>,
+    {
+        let bits = f(&mut REG::Writer::from(W {
+            bits: !REG::Ux::default(),
+            _reg: marker::PhantomData,
+        }))
+        .bits;
+        REG::Ux::atomic_and(self.register.as_ptr(), bits);
+    }
+    #[doc = " Toggle every bit in the register that was set in the write proxy. Leave other bits"]
+    #[doc = " untouched. The write is done in a single atomic instruction."]
+    #[doc = ""]
+    #[doc = " # Safety"]
+    #[doc = ""]
+    #[doc = " The resultant bit pattern may not be valid for the register."]
+    #[inline(always)]
+    pub unsafe fn toggle_bits<F>(&self, f: F)
+    where
+        F: FnOnce(&mut REG::Writer) -> &mut W<REG>,
+    {
+        let bits = f(&mut REG::Writer::from(W {
+            bits: Default::default(),
+            _reg: marker::PhantomData,
+        }))
+        .bits;
+        REG::Ux::atomic_xor(self.register.as_ptr(), bits);
     }
 }
 #[doc = " Access an array of `COUNT` items of type `T` with the items `STRIDE` bytes"]
