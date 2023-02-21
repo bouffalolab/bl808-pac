@@ -1,3 +1,7 @@
+# Note: Project migrated
+
+This project has beed migrated to https://github.com/bouffalolab/bl-pac.
+
 [![crates.io](https://img.shields.io/crates/v/bl808-pac.svg)](https://crates.io/crates/bl808-pac)
 [![Documentation](https://docs.rs/bl808-pac/badge.svg)](https://docs.rs/bl808-pac)
 ![License](https://img.shields.io/crates/l/bl808-pac.svg)
